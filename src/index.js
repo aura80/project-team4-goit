@@ -1,8 +1,8 @@
-import './js/hero-filter';
-import './js/hero-search';
-import './js/booster';
-import './js/booster-api';
-import './js/buy-tickets';
-import './js/modal';
-import './js/modal-team';
-import './js/more-authors';
+import './js/hero-filter.js';
+import './js/hero-search.js';
+import './js/booster.js';
+import './js/choose-country.js';
+import './js/buy-tickets.js';
+import './js/modal.js';
+import './js/modal-team.js';
+import './js/more-authors.js';
