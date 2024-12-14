@@ -1,58 +1,79 @@
-.event-container {
+/* Add your styles here */
+// Variables for reusable values
+$card-bg-color: #fff;
+$card-border-color: #ccc;
+$card-border-radius: 8px;
+$card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+$card-padding: 16px;
+$card-margin: 8px 0;
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$font-family: 'Arial, sans-serif';
+
+.event-card {
+  background-color: $card-bg-color;
+  border: 1px solid $card-border-color;
+  border-radius: $card-border-radius;
+  box-shadow: $card-shadow;
+  padding: $card-padding;
+  margin: $card-margin;
+  font-family: $font-family;
+
+  h3 {
+    color: $primary-color;
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: $secondary-color;
+    margin: 4px 0;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease-in-out;
+  }
+}
+
+#event-cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  justify-content: space-between;
+
+  .event-card {
+    flex: 1 1 calc(33.333% - 16px);
+    margin: 8px;
+  }
 }
-.event-card {
-  border: 1px solid #ddd;
-  padding: 20px;
-  border-radius: 5px;
-  width: calc(33.333% - 40px);
-  box-sizing: border-box;
-  text-align: center;
-  cursor: pointer;
-}
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-  padding-top: 60px;
-}
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-.event-card button {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.event-card button:hover {
-  background-color: #0056b3;
+
+#pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+
+  button {
+    background-color: $primary-color;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    margin: 0 4px;
+    border-radius: $card-border-radius;
+    cursor: pointer;
+    font-family: $font-family;
+
+    &:disabled {
+      background-color: lighten($primary-color, 20%);
+      cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+
+  #page-number {
+    align-self: center;
+    padding: 0 8px;
+    font-family: $font-family;
+  }
 }
