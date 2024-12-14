@@ -1,13 +1,8 @@
 <section class="booster">
-  <div id="eventContainer" class="event-container"></div>
-  <!-- Structura modalului -->
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <!-- reprezintă caracterul „×” (semn de înmulțire) -->
-      <p id="modalEventName"></p>
-      <button id="buyTicketButton">Buy Ticket</button>
-      <button id="buyStandardTicketButton">Buy Ticket (Standard Prices)</button>
-    </div>
+  <input type="text" id="search" placeholder="Search events..." />
+  <div id="event-cards"></div>
+  <div id="pagination">
+    <button id="prev" disabled>Previous</button>
+    <span id="page-number">1</span> <button id="next">Next</button>
   </div>
 </section>
