@@ -5,23 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const span = document.getElementsByClassName('close')[0];
   const eventContainer = document.getElementById('eventContainer');
   const modalEventName = document.getElementById('modalEventName');
-  // Deschide modalul
-  eventContainer.addEventListener('click', function (event) {
-    const target = event.target.closest('.event-card');
-    if (target) {
-      modal.style.display = 'block';
-      modalEventName.textContent = target.dataset.name;
-    }
-  });
-  // Închide modalul
-  span.onclick = function () {
-    modal.style.display = 'none';
-  };
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = 'none';
-    }
-  };
+
   // Fetch events from Ticketmaster API
   function fetchEvents() {
     fetch(apiUrl)
