@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Footer plus Modal</title>
+    <style>
+      /* Stiluri inline pentru simplitate */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      footer {
+        background-color: #f8f9fa;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 14px;
+        color: #555;
+        border-top: 1px solid #ddd;
+      }
+
+      footer svg {
+        vertical-align: middle;
+        margin: 0 5px;
+      }
+
+      footer button {
+        background: none;
+        border: none;
+        color: #007bff;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      footer button:hover {
+        text-decoration: underline;
+      }
+
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .modal button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Footer -->
+    <footer>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        width="16px"
+        height="16px"
+      >
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8c4.08 0 7.44 3.06 7.93 7h-2.02a6 6 0 1 0 0 2h2.02A8.002 8.002 0 0 1 12 20zm0-6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
+        />
+      </svg>
+      2024 | All Rights Reserved | Developed with
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="red"
+        width="16px"
+        height="16px"
+      >
+        <path
+          d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+        />
+      </svg>
+      by <button id="goit-button">GoIT Students</button>
+    </footer>
+
+    <!-- Modal-team -->
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal" id="modal">
+      <h2>Echipa 4 Tom si Jerry</h2>
+      <p>Acest proiect a fost dezvoltat de catre membrii echipei:</p>
+      <button id="close-modal">Închide</button>
+    </div>
+
+    <!-- adaugam JavaScript -->
+    <script src="./js/modal-team.js"></script>
+  </body>
+</html>
