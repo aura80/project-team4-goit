@@ -3,6 +3,47 @@
   <div id="event-cards"></div>
   <div id="pagination">
     <button id="prev" disabled>Previous</button>
-    <span id="page-number">1</span> <button id="next">Next</button>
+    <span id="page-number">1</span> 
+    <button id="next">Next</button>
   </div>
 </section>
+ <!-- Structura modalului -->
+ <div id="myModal" class="modal">
+  <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="event__image"></div>
+      <div class="event__details">
+          <div class="event-info-box">
+              <h2 class="event__info_title">INFO</h2>
+              <div class="event__info"></div>
+          </div>
+          <div class="event-when-box">
+              <h2>WHEN</h2>
+              <div class="event__start_date"></div>
+          </div>
+          <div class="event-where-desk-box">
+              <h2>WHERE</h2>
+              <div class="event__place"></div>
+          </div>
+          <div class="event-who-mob-box">
+              <h2>WHO</h2>
+              <div class="event__who-mob"></div>
+          </div>
+          <div class="event-prices-mob-box">
+              <h2>PRICES</h2>
+              <div class="event__prices-mob">
+              </div>
+          </div>
+        </div> 
+          <div class="more-from-author"> 
+            <button class="event__btn2-mob">More From This Author</button> 
+          </div> 
+        </div>
+      </div>
+  </div>
+</div>
+
+<!-- Include scripturile JavaScript -->
+<script src="./js/main.js" type="module"></script>
+<script src="./js/events.js" type="module"></script>
+<script src="./js/modal.js" type="module"></script>

@@ -1,0 +1,154 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.event-info-box {
+    max-width: 600px;
+}
+
+.event__details, .event__image, .event-info-box, .event-when-box, .event-where-desk-box, .event-who-mob-box, .event-prices-mob-box {
+    margin-bottom: 20px;
+}
+
+.event_single-price {
+    position: relative;
+    padding-left: 40px;
+}
+.event_single-price::before {
+    content: url('../images/barcode.svg');
+    position: absolute;
+    left: 0;
+    top: 25%;
+    transform: translateY(-50%);
+    width: 29px;
+    height: 21px;
+}
+
+
+/* Stiluri pentru data, ora și locația din div-ul WHEN */
+.event-when-box {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .event-when-box p {
+    margin: 0;
+  }
+  
+  .event__place {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .event-prices-mob-box {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .event-prices-mob-box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .event__prices-mob {
+    font-size: 18px;
+    color: #333;
+    display: flex;
+  }
+  
+  .event_single-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .event_single-price p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    position: relative; /* Asigură poziționarea corectă a pseudo-elementului */
+  }
+  
+  .event_single-price button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .event_single-price button:hover {
+    background-color: #0056b3;
+  }
+  
+  .main-card-modal-footer-mob, .more-from-author {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .main-card-modal-footer-mob button, .more-from-author button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .main-card-modal-footer-mob button:hover, .more-from-author button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Media Queries pentru tablete */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .main-card-modal-footer-mob, .more-from-author, .event-prices-mob-box {
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+  }
+  
+  /* Media Queries pentru desktopuri */
+  @media (min-width: 1025px) {
+    .main-card-modal-footer-mob, .more-from-author, .event-prices-mob-box {
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+  }
