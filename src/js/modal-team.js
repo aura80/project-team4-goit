@@ -7,13 +7,15 @@ const closeModalButton = document.getElementById('close-modal');
 // Modal deschis
 function openModal() {
   modal.style.display = 'block';
-  modalOverlay.style.display = 'block';
+    modalOverlay.style.display = 'block';
+    content.classList.add('blur');
 }
 
 // Modalul inchis
 function closeModal() {
   modal.style.display = 'none';
-  modalOverlay.style.display = 'none';
+    modalOverlay.style.display = 'none';
+    content.classList.remove('blur');
 }
 
 // EventL pentru deschidere și închidere
