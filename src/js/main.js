@@ -1,53 +1,68 @@
 import fetchEvents from './events.js';
-
 let currentPage = 1;
 const limit = 20;
-
+const countryInput = document.getElementById('country-input');
 async function updatePage(query) {
-  const data = await fetchEvents(query, currentPage, limit);
-  renderEvents(data.events);
-  document.getElementById('page-number').textContent = currentPage;
+  try {
+    // Get country code from country input
+    const countryCode = countryInput.getAttribute('data-country');
+    const data = await fetchEvents(query, currentPage, limit, countryCode);
 
-  // Disable/Enable pagination buttons
-  document.getElementById('prev').disabled = currentPage === 1;
-  document.getElementById('next').disabled =
-    data.pageInfo.number >= data.pageInfo.totalPages - 1;
+    if (data.events && data.events.length > 0) {
+      renderEvents(data.events);
+      updatePagination(data.pageInfo);
+    } else {
+      renderNoEventsMessage();
+    }
+  } catch (error) {
+    console.error('Error updating page:', error.message);
+    renderErrorMessage();
+  }
 }
-
 function renderEvents(events) {
   const eventCards = document.getElementById('event-cards');
   eventCards.innerHTML = events
-    .map(
-      event => `
-        <div class="event-card">
-            <h3>${event.name}</h3>
-            <p>${event.dates.start.localDate}</p>
-            <p>${event._embedded.venues[0].name}</p>
-        </div>
-    `
-    )
+    .map(event => {
+      let eventName = event.name || '';
+      let eventDate = event.dates?.start?.localDate || '';
+      let eventLocation = event._embedded?.venues?.[0]?.name || '';
+      return `
+      <div class="event-card">
+          <h3>${eventName}</h3>
+          <p>${eventDate}</p>
+          <p>${eventLocation}</p>
+      </div>
+    `;
+    })
     .join('');
 }
-
-document.getElementById('search').addEventListener('input', async event => {
-  const query = event.target.value;
-  currentPage = 1; // Reset to first page on new search
-  await updatePage(query);
-});
-
+function renderNoEventsMessage() {
+  const eventCards = document.getElementById('event-cards');
+  eventCards.innerHTML = '<p>No events found. Please refine your search.</p>';
+}
+function renderErrorMessage() {
+  const eventCards = document.getElementById('event-cards');
+  eventCards.innerHTML =
+    '<p>There was an error fetching events. Please try again later.</p>';
+}
+function updatePagination(pageInfo) {
+  document.getElementById('page-number').textContent = currentPage;
+  document.getElementById('prev').disabled = currentPage === 1;
+  document.getElementById('next').disabled =
+    pageInfo.number >= pageInfo.totalPages - 1;
+}
 document.getElementById('prev').addEventListener('click', async () => {
   if (currentPage > 1) {
     currentPage--;
-    const query = document.getElementById('search').value;
+    const query = document.getElementById('search').value.trim() || 'events';
     await updatePage(query);
   }
 });
-
 document.getElementById('next').addEventListener('click', async () => {
   currentPage++;
-  const query = document.getElementById('search').value;
+  const query = document.getElementById('search').value.trim() || 'events';
   await updatePage(query);
 });
-
 // Initial fetch
-updatePage('');
+updatePage('events');
+export default updatePage;
