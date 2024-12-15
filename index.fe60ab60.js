@@ -1,0 +1,2 @@
+var openModalButton=document.getElementById("goit-button"),modal=document.getElementById("modal"),modalOverlay=document.getElementById("modal-overlay"),closeModalButton=document.getElementById("close-modal");function openModal(){modal.style.display="block",modalOverlay.style.display="block"}function closeModal(){modal.style.display="none",modalOverlay.style.display="none"}openModalButton.addEventListener("click",openModal),closeModalButton.addEventListener("click",closeModal),modalOverlay.addEventListener("click",closeModal);
+//# sourceMappingURL=index.fe60ab60.js.map
