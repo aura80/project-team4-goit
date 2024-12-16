@@ -1,7 +1,13 @@
 import fetchEvents from './events.js';
-let currentPage = 1;
-const limit = 20;
+import { renderPagination } from './pagination.js';
+
+let currentPage = 0; // Zero-based page index for API
+const limit = 16;
+const maxPagesAccepted = 1000 / limit; // API max limit (page * size) must be less than 1,000
+
 const countryInput = document.getElementById('country-input');
+
+// Fetch and render events
 async function updatePage(query) {
   try {
     // Get country code from country input
@@ -10,7 +16,13 @@ async function updatePage(query) {
 
     if (data.events && data.events.length > 0) {
       renderEvents(data.events);
-      updatePagination(data.pageInfo);
+
+      const maxPages =
+        data.pageInfo.totalPages > maxPagesAccepted
+          ? maxPagesAccepted
+          : data.pageInfo.totalPages;
+
+      renderPagination(maxPages, currentPage, handlePageChange);
     } else {
       renderNoEventsMessage();
     }
@@ -19,6 +31,15 @@ async function updatePage(query) {
     renderErrorMessage();
   }
 }
+
+// Handle page change from pagination
+function handlePageChange(newPage) {
+  currentPage = newPage; // Update the zero-based page index
+  const query = document.getElementById('search').value.trim() || 'events';
+  updatePage(query);
+}
+
+// Render events
 function renderEvents(events) {
   const eventCards = document.getElementById('event-cards');
   eventCards.innerHTML = events
@@ -36,33 +57,22 @@ function renderEvents(events) {
     })
     .join('');
 }
+
+// Render no events message
 function renderNoEventsMessage() {
   const eventCards = document.getElementById('event-cards');
   eventCards.innerHTML = '<p>No events found. Please refine your search.</p>';
+  document.getElementById('pagination').style.display = 'none';
 }
+
+// Render error message
 function renderErrorMessage() {
   const eventCards = document.getElementById('event-cards');
   eventCards.innerHTML =
     '<p>There was an error fetching events. Please try again later.</p>';
 }
-function updatePagination(pageInfo) {
-  document.getElementById('page-number').textContent = currentPage;
-  document.getElementById('prev').disabled = currentPage === 1;
-  document.getElementById('next').disabled =
-    pageInfo.number >= pageInfo.totalPages - 1;
-}
-document.getElementById('prev').addEventListener('click', async () => {
-  if (currentPage > 1) {
-    currentPage--;
-    const query = document.getElementById('search').value.trim() || 'events';
-    await updatePage(query);
-  }
-});
-document.getElementById('next').addEventListener('click', async () => {
-  currentPage++;
-  const query = document.getElementById('search').value.trim() || 'events';
-  await updatePage(query);
-});
+
 // Initial fetch
 updatePage('events');
+
 export default updatePage;
