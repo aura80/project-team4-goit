@@ -303,37 +303,4 @@ $font-family: "Montserrat", sans-serif;
   }
 }
 
-//pagination//
-#pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 16px;
-}
-
-  button {
-    background-color: pink;
-    border: none;
-    color: grey;
-    padding: 8px 16px;
-    margin: 0 4px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: $font-family;
-
-    &:disabled {
-      background-color: lighten(pink, 20%);
-      cursor: not-allowed;
-    }
-
-    &:hover:not(:disabled) {
-      background-color: darken(pink, 10%);
-    }
-  }
-
-  #page-number {
-    align-self: center;
-    padding: 0 8px;
-    font-family: '$font-family';
-  }
   
-
