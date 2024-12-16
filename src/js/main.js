@@ -49,10 +49,12 @@ function renderEvents(events) {
       let eventLocation = event._embedded?.venues?.[0]?.name || '';
       return `
       <div class="event-card">
-          <h3>${eventName}</h3>
-          <p>${eventDate}</p>
-          <p>${eventLocation}</p>
-      </div>
+      <h3 class="event-card-name">${eventName}</h3>
+      <p class="event-card-date">${eventDate}</p>
+      <p class="event-card-place">${eventLocation}
+    <span class="event-card-pin"></span>
+  </p>
+</div>
     `;
     })
     .join('');
