@@ -8,14 +8,12 @@ const closeModalButton = document.getElementById('close-modal');
 function openModal() {
   modal.style.display = 'block';
     modalOverlay.style.display = 'block';
-    // modalOverlay.classList.add('blur');
 }
 
 // Modalul inchis
 function closeModal() {
   modal.style.display = 'none';
     modalOverlay.style.display = 'none';
-    // modalOverlay.classList.remove('blur');
 }
 
 // EventL pentru deschidere și închidere
