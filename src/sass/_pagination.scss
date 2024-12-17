@@ -1,3 +1,4 @@
+/* Default pagination styles */
 .paginationjs-theme-grey.custom-paginationjs li a {
     color: #fff;
     border: none;
@@ -56,6 +57,20 @@
     box-shadow: none !important;
   }
   
+  /* Media query for screens smaller than 768px */
+  @media (max-width: 425px) {
+    .paginationjs-theme-grey.custom-paginationjs li {
+      display: none;
+    }
+  
+    .paginationjs-theme-grey.custom-paginationjs li:first-child,
+    .paginationjs-theme-grey.custom-paginationjs li:last-child,
+    .paginationjs-theme-grey.custom-paginationjs li.active,
+    .paginationjs-theme-grey.custom-paginationjs li.active + li {
+      display: inline-block;
+    }
+  }
+  
   .paginationjs .paginationjs-pages li.paginationjs-next {
-border: none;
+    border: none;
   }
