@@ -1,0 +1,61 @@
+.paginationjs-theme-grey.custom-paginationjs li a {
+    color: #fff;
+    border: none;
+    border-radius: 10px 0px;
+    animation: animate 1s linear;
+  }
+  
+  @keyframes animate {
+    0% {
+      border: none;
+    }
+  
+    30% {
+      border-bottom: 1px solid #dc56c5;
+    }
+    50% {
+      border-right: 1px solid #dc56c5;
+    }
+  
+    70% {
+      border-top: 1px solid #dc56c5;
+    }
+  
+    100% {
+      border: 1px solid #dc56c5;
+    }
+  }
+  
+  .paginationjs-theme-grey.custom-paginationjs {
+    margin: 60px auto;
+    color: #fff;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .paginationjs-theme-grey.custom-paginationjs li {
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+  }
+  
+  .paginationjs-theme-grey.custom-paginationjs li a:hover {
+    color: #dc56c5;
+  }
+  
+  .paginationjs-theme-grey.custom-paginationjs li.active a {
+    color: #dc56c5;
+    border: 1px solid #dc56c5;
+  }
+  
+  /* Add these rules to reset any unwanted styles */
+  .paginationjs-theme-grey.custom-paginationjs li a {
+    background: none !important;
+    box-shadow: none !important;
+  }
+  
+  .paginationjs .paginationjs-pages li.paginationjs-next {
+border: none;
+  }
