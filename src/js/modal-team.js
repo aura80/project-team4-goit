@@ -32,13 +32,6 @@ const teamMembers = [
   { name: "Diana-Martina Seiculescu", role: "Developer" },
 ];
 
-// const teamList = document.getElementById("team-list");
-
-// teamMembers.forEach(member => {
-//   const listItem = document.createElement("li");
-//   listItem.innerHTML = `<span>${member.name}</span> - <span class="role">${member.role}</span>`;
-//   teamList.appendChild(listItem);
-// });
 
 const teamCards = document.getElementById("team-cards");
 
