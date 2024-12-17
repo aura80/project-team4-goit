@@ -6,15 +6,6 @@ body {
     min-height: 100vh;
 }
 
-footer {
-    background-color: #f8f9fa;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 14px;
-    color: #555;
-    border-top: 1px solid #ddd;
-}
-
 footer svg {
     vertical-align: middle;
     margin: 0 5px;
@@ -23,9 +14,13 @@ footer svg {
 footer button {
     background: none;
     border: none;
-    color: #007bff;
+    color: white;
     font-weight: bold;
     cursor: pointer;
+}
+
+footer button:hover{
+    color: #DC56C5;
 }
 
 footer button:hover {
@@ -35,11 +30,12 @@ footer button:hover {
 .modal button {
     margin-top: 10px;
     padding: 5px 10px;
-    background-color: #007bff;
+    background-color: #DC56C5;
     color: white;
     border: none;
-    cursor: pointer;
     border-radius: 4px;
+    margin: 30px;
+    cursor: pointer;
 }
 
 .modal {
@@ -50,9 +46,10 @@ footer button:hover {
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 5px 10px 20px 30px rgba(220, 86, 197, 0.5);
     z-index: 1000;
     text-align: center;
+    border-radius: 50% 0 50% 0;
 }
 
 .modal-overlay {
@@ -67,7 +64,118 @@ footer button:hover {
     z-index: 999;
 }
 
+.modal-title {
+    margin: 40px;
+}
+
+.modal-logo-goit{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 90px;
+    height: 40px;
+    margin: 10px;
+    object-fit: contain;
+}
+
 .blur {
     filter: blur(5px);
     transition: filter 0.3s;
+}
+
+footer {
+    margin-top: auto;
+    background-color: black;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+    color: #939393;
+}
+
+/* Stilizare generală */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px; /* Spațiere între carduri */
+}
+
+/* Container pentru carduri */
+#team-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Spațiu între carduri */
+max-width: 900px;
+}
+
+/* Stilul fiecărui card */
+.card {
+  width: 200px;
+    max-width: calc(25% - 20px);
+    margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  background-color: #fff;
+}
+
+/* Numele și rolul */
+.card h3 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #555;
+}
+
+//css card
+/* Stilizare generală */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* Spațiere între carduri */
+}
+
+/* Container pentru carduri */
+#team-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 60px;
+    gap: 20px;
+    /* Spațiu între carduri */
+}
+
+/* Stilul fiecărui card */
+.card {
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+}
+
+/* Numele și rolul */
+.card h3 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #555;
 }
