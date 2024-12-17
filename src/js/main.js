@@ -1,10 +1,17 @@
 import fetchEvents from './events.js';
 import axios from 'axios';
+import { renderPagination } from './pagination.js';
 
-let currentPage = 1;
-const limit = 20;
 
+let currentPage = 0; // Zero-based page index for API
+const limit = 16;
+const maxPagesAccepted = 1000 / limit; // API max limit (page * size) must be less than 1,000
+
+const countryInput = document.getElementById('country-input');
+
+// Fetch and render events
 async function updatePage(query) {
+
     const data = await fetchEvents(query, currentPage, limit);
     renderEvents(data.events);
     document.getElementById('page-number').textContent = currentPage;
@@ -15,10 +22,40 @@ async function updatePage(query) {
 
     // Adăugăm evenimentele pentru a deschide modalul
     addModalEventListeners();
+  try {
+    // Get country code from country input
+    const countryCode = countryInput.getAttribute('data-country');
+    const data = await fetchEvents(query, currentPage, limit, countryCode);
+
+    if (data.events && data.events.length > 0) {
+      renderEvents(data.events);
+
+      const maxPages =
+        data.pageInfo.totalPages > maxPagesAccepted
+          ? maxPagesAccepted
+          : data.pageInfo.totalPages;
+
+      renderPagination(maxPages, currentPage, handlePageChange);
+    } else {
+      renderNoEventsMessage();
+    }
+  } catch (error) {
+    console.error('Error updating page:', error.message);
+    renderErrorMessage();
+  }
 }
 
+// Handle page change from pagination
+function handlePageChange(newPage) {
+  currentPage = newPage; // Update the zero-based page index
+  const query = document.getElementById('search').value.trim() || 'events';
+  updatePage(query);
+
+}
+
+// Render events
 function renderEvents(events) {
-    const eventCards = document.getElementById('event-cards');
+   const eventCards = document.getElementById('event-cards');
     eventCards.innerHTML = events
         .map(
             event => `
@@ -114,27 +151,41 @@ async function fetchEventDetails(eventId) {
         console.error('Error fetching event details:', error.message);
         return null;
     }
+  
+  const eventCards = document.getElementById('event-cards');
+  eventCards.innerHTML = events
+    .map(event => {
+      let eventName = event.name || '';
+      let eventDate = event.dates?.start?.localDate || '';
+      let eventLocation = event._embedded?.venues?.[0]?.name || '';
+      return `
+      <div class="event-card">
+      <h3 class="event-card-name">${eventName}</h3>
+      <p class="event-card-date">${eventDate}</p>
+      <p class="event-card-place">${eventLocation}
+    <span class="event-card-pin"></span>
+  </p>
+</div>
+    `;
+    })
+    .join('');
 }
 
-document.getElementById('search').addEventListener('input', async event => {
-  const query = event.target.value;
-  currentPage = 1; // Reset to first page on new search
-  await updatePage(query);
-});
+// Render no events message
+function renderNoEventsMessage() {
+  const eventCards = document.getElementById('event-cards');
+  eventCards.innerHTML = '<p>No events found. Please refine your search.</p>';
+  document.getElementById('pagination').style.display = 'none';
+}
 
-document.getElementById('prev').addEventListener('click', async () => {
-  if (currentPage > 1) {
-    currentPage--;
-    const query = document.getElementById('search').value;
-    await updatePage(query);
-  }
-});
-
-document.getElementById('next').addEventListener('click', async () => {
-  currentPage++;
-  const query = document.getElementById('search').value;
-  await updatePage(query);
-});
+// Render error message
+function renderErrorMessage() {
+  const eventCards = document.getElementById('event-cards');
+  eventCards.innerHTML =
+    '<p>There was an error fetching events. Please try again later.</p>';
+}
 
 // Initial fetch
-updatePage('');
+updatePage('events');
+
+export default updatePage;
