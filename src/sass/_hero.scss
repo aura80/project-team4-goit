@@ -1,17 +1,34 @@
-body {
-  background-color: black;
-}
-
 .hero_section {
   height: 446px;
   background-image:
-  linear-gradient(to bottom, rgba(13, 13, 13, 0.19), rgba(14, 14, 14, 0.8)),
-  // linear-gradient(to bottom, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),  
-  url(.././images/header/hero-wallpaper_dark-mode.png);
+    linear-gradient(to bottom, rgba(13, 13, 13, 0.19), rgba(14, 14, 14, 0.8)),
+    // linear-gradient(to bottom, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),  
+    url(.././images/header/hero-wallpaper_dark-mode.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0 auto;
+}
+
+.hero_section::after {
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(to bottom, rgba(13, 13, 13, 0.19), rgba(14, 14, 14, 0.8)),
+    url(.././images/header/hero-wallpaper_dark-mode.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.hero_section.light::after {
+  background-image: url(.././images/header/hero-wallpaper_light-mode.jpg);
+  opacity: 1;
 }
 
 .hero_logo {
@@ -64,19 +81,23 @@ body {
   }
 }
 
-.hero-search {.search:hover {
-  width: 288px;
-  height: 40px;
-  border-radius: 20px;
-  box-shadow: 0 0 15px 5px #ff78d6;
-  outline: none;
-}}
+.hero-search {
+  .search:hover {
+    width: 288px;
+    height: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px 5px #ff78d6;
+    outline: none;
+  }
+}
 
-.hero-filter {.country-input:hover {
-  border-radius: 20px;
-  box-shadow: 0 0 15px 5px #ff78d6;
-  outline: none;
-}}
+.hero-filter {
+  .country-input:hover {
+    border-radius: 20px;
+    box-shadow: 0 0 15px 5px #ff78d6;
+    outline: none;
+  }
+}
 
 .hero-search {
   .search::placeholder {
@@ -102,7 +123,7 @@ body {
 }
 
 .btn-search-svg:hover {
-  fill: #ff78d6;  
+  fill: #ff78d6;
   transform: scale(1.5);
 }
 
@@ -153,8 +174,8 @@ body {
     display: none;
     color: #fff;
     width: 288px;
-    min-height: 20px;
-    max-height: 165px;    
+    min-height: 0px;
+    max-height: 165px;
     backdrop-filter: blur(20px);
     z-index: 15;
     background: #fff3;
@@ -163,24 +184,25 @@ body {
     top: 45px;
     overflow: hidden;
     box-shadow: 1px 3px 24px -5px #ff56c5b0;
-  }}
-
-  .country-container.visible {
-    display: block;
   }
+}
 
-  .country-item {
-    text-align: left;
-    color: #ccc;
-    cursor: pointer;
-    padding: 4px 10px 4px 30px;
-    font-size: 16px;
-    line-height: 19.5px;
-  }
+.country-container.visible {
+  display: block;
+}
 
-  .country-item:hover {
-    color: #ff78d6;
-  }
+.country-item {
+  text-align: left;
+  color: #ccc;
+  cursor: pointer;
+  padding: 4px 10px 4px 30px;
+  font-size: 16px;
+  line-height: 19.5px;
+}
+
+.country-item:hover {
+  color: #ff78d6;
+}
 
 ////////////////////////////////   Scrollbar Customization   ////////////////////////////////
 
@@ -226,9 +248,9 @@ body {
 @media (min-width: 768px) and (max-width: 1280px) {
 
   .hero_section {
-      height: 364px;
-    }
-  
+    height: 364px;
+  }
+
   .hero_logo {
     width: 180px;
     height: 150px;
@@ -247,7 +269,8 @@ body {
       height: 40px;
     }
   }
-    .hero-filter {
+
+  .hero-filter {
     .country-input {
       width: 336px;
       height: 40px;
@@ -270,19 +293,21 @@ body {
     }
   }
 
-  
+
   .hero-filter .country-container .country-list::-webkit-scrollbar-button:end:increment {
     height: 30%;
   }
 
-  .back-to-the-top {display: none;}
+  .back-to-the-top {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
 
   .hero_section {
-      height: 364px;
-    }
+    height: 364px;
+  }
 
   .hero_title {
     margin-top: 80px;
@@ -306,7 +331,7 @@ body {
       height: 40px;
     }
   }
-  
+
   .hero-filter {
     .country-input {
       width: 280px;
@@ -331,13 +356,16 @@ body {
   .hero-filter {
     .country-container {
       max-height: 80px;
-    }}
+    }
+  }
 
   .hero-filter .country-container .country-list::-webkit-scrollbar-button:end:increment {
     height: 65%;
   }
 
-  .back-to-the-top {display: none;}
+  .back-to-the-top {
+    display: none;
+  }
 }
 
 
@@ -349,7 +377,7 @@ body {
   background-color: #ff78d6;
   border-radius: 50%;
   position: fixed;
-  bottom: 30px;
+  bottom: 60px;
   right: 30px;
   opacity: 0%;
   z-index: 100;
@@ -361,3 +389,69 @@ body {
   fill: white;
 }
 
+////////////////////// Dark/Light Mode //////////////////////
+
+.hero_theme-toggle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.hero_theme-toggle[data-theme="dark"] {
+  background-color: black;
+}
+
+.hero_theme-toggle[data-theme="light"] {
+  background-color: black;
+}
+
+.theme-toggle_light-icon {
+  width: 24px;
+  height: 24px;
+  fill: white;
+  display: block;
+}
+
+.theme-toggle_dark-icon {
+  width: 24px;
+  height: 24px;
+  fill: white;
+  display: none;
+}
+
+.hero_theme-toggle[data-theme="dark"] .theme-toggle_dark-icon {
+  display: block;
+}
+
+.hero_theme-toggle[data-theme="dark"] .theme-toggle_light-icon {
+  display: none;
+}
+
+.hero_theme-toggle[data-theme="light"] .theme-toggle_dark-icon {
+  display: none;
+}
+
+.hero_theme-toggle[data-theme="light"] .theme-toggle_light-icon {
+  display: block;
+}
+
+
+.hero_theme-toggle:hover .theme-toggle_light-icon {
+  fill: rgb(255, 217, 0);
+}
+
+.hero_theme-toggle:hover .theme-toggle_dark-icon {
+  fill: rgb(90, 0, 193);
+}
+
+p, span {
+  color: rgba(14, 14, 14, 1);
+}
