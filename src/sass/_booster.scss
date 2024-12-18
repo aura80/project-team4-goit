@@ -98,7 +98,7 @@ $gap: 30px;
 
 /* Booster Section */
 .booster {
-  margin: 20px;
+  margin-top: -60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -145,7 +145,7 @@ $gap: 30px;
   }
 
   .booster {
-    margin: 32px;
+    margin-top: -90px;
   }
 }
 
@@ -171,9 +171,5 @@ $gap: 30px;
       width: 267px;
       height: 226.244px;
     }
-  }
-
-  .booster {
-    margin: 16px;
   }
 }

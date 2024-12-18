@@ -7,6 +7,24 @@
   --White: #ffffff;
 }
 
+.body-background {
+  background-color: #0e0e0e;
+  background-image: url('../images/background/bg-mobile.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+
+  @media screen and (min-width: 768px) {
+      background-image: url('../images/background/bg-tablet.png');
+  }
+
+  @media screen and (min-width: 1024px) {
+      background-image: url('../images/background/bg-desktop.jpg');
+      background-position: bottom 0px right 50%;
+  }
+}
+
+
 *,
 *::before,
 *::after {
