@@ -1,5 +1,6 @@
 import fetchEvents from './events.js';
 import { renderPagination } from './pagination.js';
+import './modal.js';
 
 let currentPage = 0; // Zero-based page index for API
 const limit = 16;
@@ -44,6 +45,7 @@ function renderEvents(events) {
   const eventCards = document.getElementById('event-cards');
   eventCards.innerHTML = events
     .map(event => {
+      const eventId = event.id;
       const eventName = event.name || '';
       const eventDate = event.dates?.start?.localDate || '';
       const eventLocation = event._embedded?.venues?.[0]?.name || '';
@@ -53,7 +55,7 @@ function renderEvents(events) {
         'https://via.placeholder.com/300x200?text=No+Image'; // Default image if none available
 
       return `
-      <div class="event-card">
+      <div class="event-card" data-id="${eventId}">
         <img src="${imageUrl}" alt="${eventName}" class="event-card-image">
         <h3 class="event-card-name">${eventName}</h3>
         <p class="event-card-date">${eventDate}</p>
