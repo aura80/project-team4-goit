@@ -30,6 +30,10 @@ $gap: 30px;
   width: 100%;
   min-height: 208px;
   text-align: center;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
   transition: transform 0.3s ease-in-out;
 
   &:hover,
@@ -42,7 +46,7 @@ $gap: 30px;
     content: '';
     position: absolute;
     top: 0px;
-    left: 30px;
+    left: 35%;
     width: 102px;
     height: 95px;
     border: 2px solid rgba(220, 86, 197, 0.3);
@@ -129,8 +133,7 @@ $gap: 30px;
     &::after {
       width: 120px;
       height: 112px;
-      top: -5px;
-      left: 30px;
+      left: 30%;
     }
 
     &-image {
@@ -163,8 +166,8 @@ $gap: 30px;
     &::after {
       width: 227px;
       height: 213px;
-      top: -10px;
-      left: 50px;
+      top: 0px;
+      left: 30%;
     }
 
     &-image {
