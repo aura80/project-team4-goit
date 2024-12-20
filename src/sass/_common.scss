@@ -7,6 +7,9 @@
   --White: #ffffff;
 }
 
+$desktop-width: 1280px;
+$tablet-width: 768px;
+
 .body-background {
   background-color: #0e0e0e;
   background-image: url('../images/background/bg-mobile.png');
@@ -18,7 +21,7 @@
       background-image: url('../images/background/bg-tablet.png');
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: $desktop-width) {
       background-image: url('../images/background/bg-desktop.jpg');
       background-position: bottom 0px right 50%;
   }
