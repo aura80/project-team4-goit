@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // hide spinner after 500 ms
           setTimeout(() => {
             spinner.style.display = 'none';
-          }, 600);
+          }, 1200);
 
         } catch (error) {
           console.error('Failed to fetch event details:', error);
