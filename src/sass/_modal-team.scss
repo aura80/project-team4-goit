@@ -5,6 +5,14 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+/* Stilizare generală */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px; /* Spațiere între carduri */
+}
 
 footer svg {
     vertical-align: middle;
@@ -21,9 +29,6 @@ footer button {
 
 footer button:hover{
     color: #DC56C5;
-}
-
-footer button:hover {
     text-decoration: underline;
 }
 
@@ -68,6 +73,10 @@ footer button:hover {
     margin: 40px;
 }
 
+.modal-description{
+    margin-bottom: 25px;
+}
+
 .modal-logo-goit{
     position: absolute;
     top: 0;
@@ -93,89 +102,70 @@ footer {
     color: #939393;
 }
 
-/* Stilizare generală */
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px; /* Spațiere între carduri */
-}
 
-/* Container pentru carduri */
+/* Container carduri */
 #team-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px; /* Spațiu între carduri */
-max-width: 900px;
-}
-
-/* Stilul fiecărui card */
-.card {
-  width: 200px;
+  max-width: 900px;
+    /* Stil card */
+    .card-member {
     max-width: calc(25% - 20px);
     margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  text-align: center;
-  background-color: #fff;
-}
-
-/* Numele și rolul */
-.card h3 {
-  font-size: 18px;
-  margin: 10px 0 5px;
-}
-
-.card p {
-  font-size: 14px;
-  color: #555;
-}
-
-//css card
-/* Stilizare generală */
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    /* Spațiere între carduri */
-}
-
-/* Container pentru carduri */
-#team-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 60px;
-    gap: 20px;
-    /* Spațiu între carduri */
-}
-
-/* Stilul fiecărui card */
-.card {
-    width: 200px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 35% 0 35% 0 ;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 15px;
     text-align: center;
     background-color: #fff;
-}
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //   justify-content: center;
+    }
 
-/* Numele și rolul */
-.card h3 {
+    /* Numele și rolul */
+    .card h3 {
     font-size: 18px;
     margin: 10px 0 5px;
-}
+    }
 
-.card p {
+    .card p {
     font-size: 14px;
     color: #555;
+    }
+
+    //Imagine membru
+    .member-image {
+        height: auto;
+        // border-radius: 50% 0 50% 0;
+        object-fit:contain;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+
+
+
+
+
+
+
+}
+
+
+
+/* Tablet Media Query */
+@media screen and (min-width: 768px) {
+
+}
+
+/* Mobile Media Query */
+@media screen and (min-width: 1158px) {
+
 }
