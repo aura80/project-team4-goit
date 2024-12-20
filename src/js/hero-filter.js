@@ -145,7 +145,7 @@ if (countryInput && countryDropdown) {
   countryDropdown.addEventListener('click', event => {
     const item = event.target;
     if (item && item.classList.contains('country-item')) {
-      countryCode = item.getAttribute('data-country');
+      const countryCode = item.getAttribute('data-country');
       const selectedCountryName = item.textContent;
 
       // Update input field with selected country
