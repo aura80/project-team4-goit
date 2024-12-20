@@ -236,18 +236,18 @@
   animation: spin 2s linear infinite;
   display: none; /* Ascunsă inițial */
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 20%;
+  right: 7%;
+  transform: translateY(-50%);
   box-shadow: 10px 10px 10px 20px rgba(233, 80, 217, 0.9);
 }
 
 @keyframes spin {
   from {
-    transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%) rotate(0deg);
   }
   to {
-    transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%) rotate(360deg);
   }
 }
 
