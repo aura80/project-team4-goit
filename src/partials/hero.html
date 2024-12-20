@@ -1,28 +1,34 @@
 <header>
   <section class="hero_section">
-    <img src="./images/header/logo.png" alt="Logo" class="hero_logo">
+    <div>
+      <a href="/">
+        <img src="./images/header/logo.png" alt="Logo" class="hero_logo">
+      </a>
+    </div>    
     <div class="hero_container">
       <h1 class="hero_title">FIND BEST EVENTS AROUND THE WORLD</h1>
 
       <div class="hero_search-filter_container">
 
         <div id="hero-search" class="hero-search">
-          <input id="search" type="text" name="search" placeholder="Start searching" class="search hero-input" autocomplete="off">
+          <input id="search" type="text" name="search" placeholder="Start searching" class="search hero-input"
+            autocomplete="off">
           <button id="btn-search" class="btn-search" type="submit">
             <svg class="btn-search-svg" width="12" height="12" viewBox="0 0 32 32"> fill="none"
               xmlns="http://www.w3.org/2000/svg">
-              <path 
+              <path
                 d="M4.024 4.024c2.595-2.595 6.045-4.024 9.715-4.024s7.12 1.429 9.715 4.024c2.595 2.595 4.024 6.045 4.024 9.715 0 3.355-1.195 6.526-3.383 9.029l7.63 7.63c0.366 0.366 0.366 0.961 0 1.327-0.183 0.183-0.423 0.275-0.664 0.275s-0.48-0.092-0.663-0.275l-7.63-7.63c-2.502 2.188-5.673 3.383-9.029 3.383-3.67 0-7.12-1.429-9.715-4.024s-4.024-6.045-4.024-9.715 1.429-7.12 4.024-9.715zM5.351 22.127c4.625 4.625 12.15 4.625 16.775 0s4.625-12.15 0-16.775c-2.313-2.313-5.35-3.469-8.388-3.469s-6.076 1.157-8.388 3.469c-4.625 4.625-4.625 12.15 0 16.775z">
               </path>
             </svg>
           </button>
-          
+
         </div>
 
         <div id="hero-filter" class="hero-filter hero-input">
           <input id="country-input" type="text" name="country-input" placeholder="Choose country"
             class="country-input hero-input" autocomplete="off" data-country="">
-          <svg width="15" height="10" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-filter">
+          <svg width="15" height="10" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="btn-filter">
             <path d="M6.5 8L0.00480968 0.5L12.9952 0.499999L6.5 8Z" fill="#939393" />
           </svg>
           <div class="country-container">
@@ -32,12 +38,35 @@
         </div>
       </div>
     </div>
-    
+
   </section>
   <button id="back-to-top" title="Back to Top" class="back-to-the-top">
-    <svg class="back-to-the-top_svg" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up" viewBox="0 0 24 24">
+    <svg class="back-to-the-top_svg" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"
+      viewBox="0 0 24 24">
       <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Dark/Light Mode -->
+  <button class="hero_theme-toggle" id="themeToggle">
+    <!-- Light Theme Icon -->
+    <svg class="theme-toggle_light-icon" width="24" height="24" id="lightIcon" viewBox="0 0 32 32">>
+      <path
+        d="M15.982 24.061c-4.455 0-8.079-3.624-8.079-8.079s3.624-8.079 8.079-8.079c4.455 0 8.079 3.624 8.079 8.079s-3.624 8.079-8.079 8.079z">
+      </path>
+      <path d="M14.928 0.176h2.107v5.546h-2.107v-5.546z"></path>
+      <path d="M14.928 26.242h2.107v5.546h-2.107v-5.546z"></path>
+      <path d="M0.176 14.928h5.546v2.107h-5.546v-2.107z"></path>
+      <path d="M26.242 14.928h5.546v2.107h-5.546v-2.107z"></path>
+      <path d="M22.49 7.982l3.922-3.922 1.49 1.49-3.922 3.922-1.49-1.49z"></path>
+      <path d="M4.062 26.414l3.922-3.922 1.49 1.49-3.922 3.922-1.49-1.49z"></path>
+      <path d="M4.060 5.552l1.49-1.49 3.922 3.922-1.49 1.49-3.922-3.922z"></path>
+      <path d="M22.492 23.981l1.49-1.49 3.922 3.922-1.49 1.49-3.922-3.922z"></path>
+    </svg>
+    <!-- Dark Theme Icon -->
+    <svg class="theme-toggle_dark-icon" width="24" height="24" id="darkIcon" viewBox="0 0 24 24">
+      <path d="M21.64 13.37a9 9 0 01-9.94 9 9 9 0 01-1.56-17.89 7 7 0 0011.5 8.89z" />
     </svg>
   </button>
 </header>

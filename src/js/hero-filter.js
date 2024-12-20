@@ -123,6 +123,8 @@ if (countryInput && countryDropdown) {
   // Clear input value on focus and display placeholder
   countryInput.addEventListener('focus', () => {
     countryInput.value = '';
+    countryInput.dataset.country = '';
+    populateCountryList(countries);
   });
 
   // Search and filter countries on keyup
@@ -143,12 +145,11 @@ if (countryInput && countryDropdown) {
   countryDropdown.addEventListener('click', event => {
     const item = event.target;
     if (item && item.classList.contains('country-item')) {
-      countryCode = item.getAttribute('data-country');
+      const countryCode = item.getAttribute('data-country');
       const selectedCountryName = item.textContent;
 
       // Update input field with selected country
       countryInput.value = selectedCountryName;
-      console.log('countryCode', countryCode);
       countryInput.setAttribute('data-country', countryCode);
 
       // Close dropdown
@@ -157,7 +158,6 @@ if (countryInput && countryDropdown) {
       // Fetch events for the selected country
       let searchInputValue = document.getElementById('search').value;
       let searchEvent = searchInputValue !== '' ? searchInputValue : 'events';
-      console.log('NNNNNNNN');
       updatePage(searchEvent);
     }
   });

@@ -23,3 +23,7 @@ export function renderPagination(totalPages, currentPage, onPageChange) {
     className: 'paginationjs-theme-grey custom-paginationjs',
   });
 }
+
+
+
+
