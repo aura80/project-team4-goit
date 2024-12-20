@@ -71,6 +71,7 @@ footer button:hover{
 
 .modal-title {
     margin: 40px;
+    color: black;
 }
 
 .modal-description{
@@ -112,8 +113,9 @@ footer {
   max-width: 900px;
     /* Stil card */
     .card-member {
-    max-width: calc(25% - 20px);
+    max-width: calc(20% - 20px);
     margin-bottom: 20px;
+    margin-left: 10px;
     border: 1px solid #ddd;
     border-radius: 35% 0 35% 0 ;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -124,7 +126,13 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    //   justify-content: center;
+        h3{
+            color: black;
+            font-size: 100%;
+        }
+        p{
+            font-size: 80%;
+        }
     }
 
     /* Numele și rolul */
