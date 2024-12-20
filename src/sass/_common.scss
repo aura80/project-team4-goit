@@ -1,7 +1,7 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
 :root {
-  --font-family: 'Roboto', sans-serif;
+  --font-family: 'Montserrat', sans-serif;
   --font-family-hero: 'Playfair Display', serif;
   --Blue-font: #0a224a;
   --White: #ffffff;
@@ -23,7 +23,7 @@ img {
 
 html,
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-family);
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -31,7 +31,7 @@ body {
 }
 
 h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-family-hero);
 }
 
 h1,
