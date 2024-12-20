@@ -1,227 +1,254 @@
 /* Modal overlay */
 .event-modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #200D1D99;
-    backdrop-filter: blur(3px);
-    z-index: 999;
-  }
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #200D1D99;
+  backdrop-filter: blur(3px);
+  z-index: 999;
+}
   
-  /* Modal */
-  .event-modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    padding: 54px 74px;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    width: 1034px; /* Adjusted width */
-    height: 918px; /* Adjusted height */
-    background-color: #FFF2FD;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border-radius: 300px 0px;
-    overflow: hidden; /* Ensuring content stays inside */
-  }
+/* Modal */
+.event-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 54px 74px;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 1034px; /* Adjusted width */
+  height: 918px; /* Adjusted height */
+  background-color: #FFF2FD;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 300px 0px;
+  overflow: hidden; /* Ensuring content stays inside */
+}
   
-  .event-modal-content {
-    padding: 20px;
-    height: 100%; /* Ensuring the content takes the full height */
-    overflow-y: auto; /* Adding scroll for overflow content */
-  }
+.event-modal-content {
+  padding: 20px;
+  height: 100%; /* Ensuring the content takes the full height */
+  overflow-y: auto; /* Adding scroll for overflow content */
+}
   
-  .event-close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    cursor: pointer;
-  }
+.event-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
   
-  .pic-circle {
-    width: 132px;
-    height: 132px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 20px;
-  }
+.pic-circle {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+}
   
-  .pic-circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.pic-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
   
-  .event-content {
-    display: flex;
-    margin-bottom: 20px;
-    justify-content: space-between; /* Ensuring proper spacing */
-  }
+.event-content {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-between; /* Ensuring proper spacing */
+}
   
-  .pic {
-    flex: 1;
-    max-width: 427px;
-    max-height: 326px;
-  }
+.pic {
+  flex: 1;
+  max-width: 427px;
+  max-height: 326px;
+}
   
-  .pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
   
-  .modal-details {
-    flex: 2;
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+.modal-details {
+  flex: 2;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
   
-  .modal-details div {
-    margin-bottom: 10px;
-  }
+.modal-details div {
+  margin-bottom: 10px;
+}
   
-  .modal-info {
-    width: 427px;
-    height: 88px;
-    overflow: block; /* Hide overflow content */
-    position: relative;
-  }
-  /* Stilizarea pentru textul din div-ul modal-info */
+.modal-info {
+  width: 427px;
+  height: 88px;
+  overflow: block; /* Hide overflow content */
+  position: relative;
+}
+  /* Styling for the div modal-info text */
 .modal-event-details p {
-    font-family: Montserrat;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 21.94px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-  }
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.94px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
   
-  /* Stilizarea pentru tagul strong */
-  .modal-info strong, .when strong, .where strong, .who strong, .prices strong {
-    font-family: Montserrat;
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 29.26px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    color: #DC56C5;
-  }
-  
-  
-  .event-info {
-    width: 427px;
-    max-height: 88px;
-    overflow: auto;
-    overflow-y: scroll; /* Enable vertical scrolling */
-    white-space: normal; /* Allow text to wrap */
-    word-wrap: break-word; /* Break long words */
-    margin-top: 7px;
-  }
-  
-  /* Visible scroll bar styling */
-  .event-info::-webkit-scrollbar {
-    width: 8px; /* Scrollbar width */
-    height: 8px; /* Scrollbar height */
-  }
-  
-  .event-info::-webkit-scrollbar-thumb {
-    background-color: #888; /* Scrollbar color */
-    border-radius: 4px; /* Scrollbar corner roundness */
-  }
-  
-  .event-info::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Scroll track color */
-  }
+  /* Styling for the strong tag */
+.modal-info strong, .when strong, .where strong, .who strong, .prices strong {
+  font-family: Montserrat;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29.26px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #DC56C5;
+}
   
   
-  .where, .who, .when {
+.event-info {
+  width: 427px;
+  max-height: 88px;
+  overflow: auto;
+  overflow-y: scroll; /* Enable vertical scrolling */
+  white-space: normal; /* Allow text to wrap */
+  word-wrap: break-word; /* Break long words */
+  margin-top: 7px;
+}
+  
+/* Visible scroll bar styling */
+.event-info::-webkit-scrollbar {
+  width: 8px; /* Scrollbar width */
+  height: 8px; /* Scrollbar height */
+}
+  
+.event-info::-webkit-scrollbar-thumb {
+  background-color: #888; /* Scrollbar color */
+  border-radius: 4px; /* Scrollbar corner roundness */
+}
+  
+.event-info::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Scroll track color */
+}
+  
+  
+.where, .who, .when {
     margin-top: 16px;
-  }
+}
 
    
-  .prices {
-    display: flex;
-    flex-direction: column;
-    margin-top:20px;
-    width: 542px;
-    height: 118px;
-    opacity: 0px;
+.prices {
+  display: flex;
+  flex-direction: column;
+  margin-top:20px;
+  width: 542px;
+  height: 118px;
+  opacity: 0px;
 
-  }
-  .prices-container {
-    display: flex;
-    align-items: center;
-    vertical-align: top;
+}
 
-  }
+.prices-container {
+  display: flex;
+  align-items: center;
+  vertical-align: top;
+}
   
-  .price-list {
-    display: flex;
-    justify-content: space-between;
-  }
+.price-list {
+  display: flex;
+  justify-content: space-between;
+}
   
-  .prices .price-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
+.prices .price-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
   
-  .barcode {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-    background: url('../images/barcode.svg') no-repeat center center; /* Adding the barcode image */
-    background-size: contain;
-  }
+.barcode {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  background: url('../images/barcode.svg') no-repeat center center; /* Adding the barcode image */
+  background-size: contain;
+}
   
-  .buy-button {
-    background-color: #4C00FE;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 145px;
-    height: 40px;
-    font-family: Montserrat;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 19.5px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+.buy-button-standard, 
+.buy-button-vip {
+  background-color: #4C00FE;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 145px;
+  height: 40px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.5px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+  
+.buy-button-standard:hover,
+.buy-button-vip:hover {
+  background-color: #FFF2FD;
+  color: #4C00FE;
+  border: 1px solid #4C00FE;
+}
+  
+.more-button {
+  display: block;
+  width: 255px;
+  text-align: center;
+  margin-top: 20px;
+  background-color: #FFF2FD;
+  color: #4C00FE;
+  border: 1px solid #4C00FE;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+  
+.more-button:hover {
+  background-color: #4C00FE;
+  color: #FFF2FD;
+}
 
+// Modal animation
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  border-left-color: #dc56c5;
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  animation: spin 2s linear infinite;
+  display: none; /* Ascunsă inițial */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 10px 10px 10px 20px rgba(233, 80, 217, 0.9);
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
   }
-  
-  .buy-button:hover {
-    background-color: #FFF2FD;
-    color: #4C00FE;
-    border: 1px solid #4C00FE;
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
-  
-  .more-button {
-    display: block;
-    width: 255px;
-    text-align: center;
-    margin-top: 20px;
-    background-color: #FFF2FD;
-    color: #4C00FE;
-    border: 1px solid #4C00FE;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .more-button:hover {
-    background-color: #4C00FE;
-    color: #FFF2FD;
-  }
+}
+
   
