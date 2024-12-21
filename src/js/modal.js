@@ -56,12 +56,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="when">
                       <strong>WHEN</strong>
+                      <div class="when-info">
                       <p>${eventDate}</p>
                       <p>${eventTime} (${eventLocation})</p>
+                      </div>
                     </div>
                     <div class="where">
                       <strong>WHERE</strong>
+                      <div class="where-info">
                       <p>${eventLocation}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -76,21 +80,25 @@ document.addEventListener('DOMContentLoaded', () => {
                       ? `
                   <div class="prices-container">
                     <div class="price-item">
+                    <div class="price-info">
                       <div class="barcode"></div> <!-- Placeholder for barcode image -->
-                      <div>
+                      <div class="standard-price">
                         <p>STANDARD: $${minPrice} ${ticketPrices[0]?.currency} - $${ticketPrices[0]?.max} ${ticketPrices[0]?.currency}</p>
-                        <button id="buyStandardButton" class="buy-button-standard" data-url="${buyStandardTicketUrl}">Buy Tickets</button>
                       </div>
                     </div>
+                        <button id="buyStandardButton" class="buy-button-standard" data-url="${buyStandardTicketUrl}">Buy Tickets</button>
+                      </div>
                     ${
                       ticketPrices[1]
                         ? `
                       <div class="price-item">
+                      <div class="price-info">
                         <div class="barcode"></div> <!-- Placeholder for barcode image -->
-                        <div>
+                        <div class="vip-price">
                           <p>VIP: $${maxPrice} ${ticketPrices[1]?.currency} - $${ticketPrices[1]?.max} ${ticketPrices[1]?.currency}</p>
+                          </div>
+                          </div>
                           <button id="buyVipButton" class="buy-button-vip" data-url="${buyVipTicketUrl}">Buy Tickets</button>
-                        </div>
                       </div>`
                         : ''
                     }
@@ -98,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                       : 'There are no tickets available for this event'
                   }
                 </div>
-                <button id="more-from-authors" class="more-button">More from authors</button>
+                <button id="more-from-authors" class="more-button">MORE FROM THIS AUTHOR</button>
               `;
           }
 

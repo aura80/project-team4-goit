@@ -10,89 +10,102 @@
   backdrop-filter: blur(3px);
   z-index: 999;
 }
-  
+
 /* Modal */
+
 .event-modal {
   display: none;
   position: fixed;
   top: 50%;
   left: 50%;
-  padding: 54px 74px;
   transform: translate(-50%, -50%);
   z-index: 1000;
-  width: 1034px; /* Adjusted width */
-  height: 918px; /* Adjusted height */
+  width: 280px;
+  height: 952px;
   background-color: #FFF2FD;
+  border: 1px solid #4C00FE;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   border-radius: 300px 0px;
-  overflow: hidden; /* Ensuring content stays inside */
+  overflow: hidden;
 }
-  
+
 .event-modal-content {
-  padding: 20px;
-  height: 100%; /* Ensuring the content takes the full height */
-  overflow-y: auto; /* Adding scroll for overflow content */
+  height: 100%;
+  // padding: 20px;
+  box-sizing: border-box;
+
+  // border: 1px solid #4C00FE;
 }
-  
+
+#modal-event-details {
+  // margin-left: 16px;
+  display: flex;;
+  flex-direction: column;
+  align-items: center;
+}
+
 .event-close-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
   cursor: pointer;
+  color: #4C00FE;
+  width: 17px;
+  height: 17px;
+  top: 24px;
+  right: 24px;
+
 }
-  
+
+.event-close-btn img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.8s, filter 0.3s; /* Adaugă o tranziție lină */
+}
+
+.event-close-btn img:hover {
+  transform: scale(1.1); /* Mărește ușor imaginea la hover */
+  filter: brightness(1.5); /* Schimbă luminozitatea pentru un efect vizual */
+}
+
+
 .pic-circle {
-  width: 132px;
-  height: 132px;
+  display: flex;
+  align-self: center;
+  width: 102px;
+  height: 102px;
   border-radius: 50%;
   overflow: hidden;
-  margin: 0 auto 20px;
+  margin: 80px auto 20px auto;
 }
-  
+
 .pic-circle img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-  
+
 .event-content {
   display: flex;
-  margin-bottom: 20px;
-  justify-content: space-between; /* Ensuring proper spacing */
+  justify-content: space-between;
 }
-  
-.pic {
-  flex: 1;
-  max-width: 427px;
-  max-height: 326px;
-}
-  
-.pic img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-  
+
+
 .modal-details {
   flex: 2;
-  margin-left: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  text-align: center;
 }
-  
-.modal-details div {
-  margin-bottom: 10px;
-}
-  
+
 .modal-info {
-  width: 427px;
-  height: 88px;
-  overflow: block; /* Hide overflow content */
+  width: 243px;
+  height: auto;
+  overflow: block; 
   position: relative;
 }
-  /* Styling for the div modal-info text */
+
+/* Stilizarea pentru textul din div-ul modal-info */
 .modal-event-details p {
   font-family: Montserrat;
   font-size: 18px;
@@ -101,12 +114,12 @@
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-}
-  
-  /* Styling for the strong tag */
+ }
+
+/* Stilizarea pentru tagul strong */
 .modal-info strong, .when strong, .where strong, .who strong, .prices strong {
   font-family: Montserrat;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 29.26px;
   text-align: left;
@@ -114,76 +127,211 @@
   text-decoration-skip-ink: none;
   color: #DC56C5;
 }
-  
-  
+
+
 .event-info {
-  width: 427px;
-  max-height: 88px;
+  width: 243px;
+  max-height: 100px;
   overflow: auto;
-  overflow-y: scroll; /* Enable vertical scrolling */
-  white-space: normal; /* Allow text to wrap */
-  word-wrap: break-word; /* Break long words */
-  margin-top: 7px;
-}
-  
-/* Visible scroll bar styling */
-.event-info::-webkit-scrollbar {
-  width: 8px; /* Scrollbar width */
-  height: 8px; /* Scrollbar height */
-}
-  
-.event-info::-webkit-scrollbar-thumb {
-  background-color: #888; /* Scrollbar color */
-  border-radius: 4px; /* Scrollbar corner roundness */
-}
-  
-.event-info::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Scroll track color */
-}
-  
-  
-.where, .who, .when {
-    margin-top: 16px;
+  overflow-y: scroll; 
+  white-space: normal; 
+  word-wrap: break-word;
+  // margin-top: 5px;
 }
 
-   
+/* Visible scroll bar styling */
+.event-info::-webkit-scrollbar {
+  width: 8px; 
+  height: 8px;
+}
+
+.event-info::-webkit-scrollbar-thumb {
+  background-color: #FFF2FD; 
+  border-radius: 4px; 
+}
+
+.event-info::-webkit-scrollbar-track {
+  background: #FFF2FD; 
+}
+
+.event-info p, .when p, .where p, .who p, .prices p {
+  color: #0E0E0E;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+// .when p, .where p, .who p, .prices p {
+//   margin-top: 16px;
+// }
+
+.when, .where {
+  width: 178px;
+  height: 72px;
+}
+
+.when, .where, .prices, .who {
+  margin-top: 16px;
+    }
+  
+
+.when-info { 
+  max-height: 40px; 
+  overflow-y: auto; 
+  white-space: normal; 
+  word-wrap: break-word; 
+  gap: 3px;
+  // margin-top: 5px;
+} 
+
+/* Scroll bar styling for the 'when-info' section */ 
+.when-info::-webkit-scrollbar { 
+  width: 8px; 
+  height: 8px; 
+} 
+
+.when-info::-webkit-scrollbar-thumb { 
+  background-color: #FFF2FD;
+  border-radius: 4px;
+} 
+
+.when-info::-webkit-scrollbar-track { 
+  background: #FFF2FD; 
+}
+
+.where-info {
+  width: 178px;
+  max-height: 40px; /* Ajustează înălțimea în funcție de necesitate */
+  overflow: auto;
+  overflow-y: scroll; 
+  white-space: normal; 
+  word-wrap: break-word;
+  // margin-top: 5px;
+}
+
+
+/* Scroll bar styling for the 'where-info' section */ 
+.where-info::-webkit-scrollbar { 
+  width: 8px; 
+  height: 8px; 
+} 
+
+.where-info::-webkit-scrollbar-thumb { 
+  background-color: #FFF2FD;
+  border-radius: 4px;
+} 
+
+.where-info::-webkit-scrollbar-track { 
+  background: #FFF2FD; 
+}
+
+.who {
+  text-align: center;
+}
+
 .prices {
   display: flex;
   flex-direction: column;
-  margin-top:20px;
-  width: 542px;
-  height: 118px;
+  align-items: center;
+  // margin-top:20px;
+  width: 221px;
+  height: 200px;
   opacity: 0px;
-  color: black;
-}
 
+}
 .prices-container {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   vertical-align: top;
+  gap: 16px;
+
 }
-  
+
 .price-list {
   display: flex;
   justify-content: space-between;
 }
-  
+
+.price-info {
+display: flex;
+flex-direction: row;
+// margin-top: 2px;
+margin-bottom: 16px;
+}
+
 .prices .price-item {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  // margin-top: 2px;
   align-items: center;
-  margin-bottom: 10px;
 }
-  
+
+.standard-price, .vip-price {
+  height: 20px;
+  overflow: auto;
+  overflow-y: scroll; 
+  white-space: normal; 
+  word-wrap: break-word;
+}
+
+.standard-price::-webkit-scrollbar { 
+  width: 8px; 
+  height: 8px; 
+}
+
+.vip-price::-webkit-scrollbar { 
+  width: 8px; 
+  height: 8px; 
+}
+
+.standard-price::-webkit-scrollbar-thumb { 
+  background-color: #FFF2FD;
+  border-radius: 4px;
+}
+
+.vip-price::-webkit-scrollbar-thumb { 
+  background-color: #FFF2FD;
+  border-radius: 4px;
+}
+
+.standard-price::-webkit-scrollbar-track { 
+  background: #FFF2FD; 
+}
+
+.vip-price::-webkit-scrollbar-track { 
+  background: #FFF2FD; 
+}
+
+
+.price-item p {
+  display: inline-block;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  max-width: 184px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21.94px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  // color: #0E0E0E;
+} 
+
 .barcode {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-  background: url('../images/barcode.svg') no-repeat center center; /* Adding the barcode image */
+  width: 24px;
+  height: 16px;
+  margin-right: 2px;
+  background: url('../images/barcode.svg') no-repeat center center;
   background-size: contain;
 }
-  
-.buy-button-standard, 
-.buy-button-vip {
+
+
+
+#buyStandardButton, #buyVipButton {
   background-color: #4C00FE;
   color: white;
   border: none;
@@ -196,35 +344,44 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 19.5px;
-  text-align: left;
+  text-align: center;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
+  transition: transform 0.8s ease, 
+  background-color 0.8s ease;
 }
-  
-.buy-button-standard:hover,
-.buy-button-vip:hover {
+
+#buyStandardButton:hover, #buyVipButton:hover {
   background-color: #FFF2FD;
   color: #4C00FE;
   border: 1px solid #4C00FE;
+  transform: scale(0.95);
 }
-  
+
 .more-button {
-  display: block;
-  width: 255px;
+  // display: block;
+  width: calc(100% - 58px); /* Ajustare pentru a evita marginile */
+  height: 40px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 16px; /* Centrare orizontală și distanță de sus */
   background-color: #FFF2FD;
   color: #4C00FE;
   border: 1px solid #4C00FE;
-  padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
+  transition: transform 0.8s ease, background-color 0.8s ease;
+  font-size: 16px;
 }
-  
+
+
 .more-button:hover {
   background-color: #4C00FE;
   color: #FFF2FD;
+  transform: scale(0.95);
 }
+
+/* Ascunde imaginea din div-ul pic pe dispozitive mobile */ 
+.pic { display: none; }
 
 // Modal animation
 .spinner {
@@ -251,4 +408,273 @@
   }
 }
 
-  
+
+/* Media queries for screens wider than 768px */
+@media screen and (min-width: 768px) {
+.event-modal {
+  width: 704px;
+  height: 781px;
+  border: 1px solid #DC56C5;
+}
+
+.event-modal-content {
+  padding: 20px;
+}
+
+// #modal-event-details {
+
+// }
+
+.modal-details {
+  margin-left: 32px;
+}
+
+// .event-close-btn {
+
+// }
+
+// .event-close-btn img {
+
+// }
+
+.pic-circle {
+width: 70px;
+height: 70px;
+margin: 32px 317px 40px 317px;
+}
+
+// .pic-circle img {
+
+
+// }
+
+.pic {
+display: block;
+max-width: 249px;
+height: 217px;
+}
+
+// .pic img {
+
+// }
+
+
+// .modal-info {
+
+// }
+
+// .modal-event-details p {
+
+// }
+
+// .modal-info strong, .when strong, .where strong, .who strong, .prices strong {
+
+// }
+
+// .event-info {
+
+// }
+
+// .event p, .when p, .where p, .who p, .prices p {
+
+// }
+
+// .when p, .where p, .who p, .prices p {
+
+// }
+
+// .when, .where {
+
+// }
+
+// .when-info {
+
+// }
+
+.prices {
+  width: 543px;
+  height: 105px;
+  align-items: flex-start;
+}
+
+.prices .price-item {
+  align-items: flex-start;
+}
+
+.prices-container {
+  flex-direction: row;
+  gap: 42px;
+}
+
+// .price-list {
+
+// }
+
+.price-item p {
+  // max-width: auto;
+  text-align: left;
+}
+
+// .barcode {
+
+// }
+
+// .buy-button {
+
+// }
+
+.more-button {
+  width: 255px;
+  margin-top: 60px;
+}
+}
+
+/* Media queries for screens wider than 1280px */
+@media screen and (min-width: 1280px) {
+.event-modal {
+  width: 1034px;
+  height: 918px;
+  border: 1px solid #4C00FE;
+}
+
+// .event-modal-content {
+
+// }
+
+#modal-event-details {
+  margin-left: 74px;
+  display: block;
+}
+
+
+.event-close-btn {
+  width: 25px;
+  height: 25px;
+  top: 32px;
+  right: 32px;
+
+}
+
+// .event-close-btn img {
+
+// }
+
+.pic-circle {
+  width: 132px;
+  height: 132px;
+  margin: auto auto 40px auto;
+
+}
+
+// .pic-circle img {
+
+
+// }
+
+.pic {
+  display: block;
+  max-width: 427px;
+  max-height: 326px;
+}
+
+.pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-details {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.modal-info {
+  width: 427px;
+  height: 124px;
+}
+
+// .modal-event-details p {
+
+// }
+
+.modal-info strong, .when strong, .where strong, .who strong, .prices strong {
+  font-size: 24px;
+}
+
+.event-info {
+  margin-top: 7px;
+  width: 427px;
+  max-height: 88px;
+}
+
+.event p, .when p, .where p, .who p, .prices p {
+  font-size: 18px;
+}
+
+.when, .where {
+  width: 427px;
+  height: auto;
+}
+
+.when, .where, .who, .prices {
+  margin-top: 20px;
+  }
+
+  .who {
+    text-align: left;;
+  }
+
+.when-info {
+ max-height: 44px;
+}
+
+.prices {
+  margin-top:20px;
+  width: 542px;
+  height: 118px;
+  align-items: baseline;
+}
+
+.prices .price-item {
+  align-items: flex-start;
+}
+
+
+.prices-container {
+  align-items: center;
+  flex-direction: row;
+  gap: 60px;
+
+}
+
+.standard-price, .vip-price {
+  margin-bottom: 20px;
+}
+
+// .price-list {
+
+// }
+
+.price-item p {
+  white-space: nowrap; 
+  font-size: 18px;
+  max-width: 100%;
+  text-align: left;
+}
+
+.barcode {
+  width: 29px;
+  height: 19px;;
+}
+
+// .buy-button {
+
+// }
+
+.more-button {
+ margin-left: 309px;
+ margin-top: 60px;
+ width: 255px;
+//  padding: 10px 20px;
+}
+}
