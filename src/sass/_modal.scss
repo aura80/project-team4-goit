@@ -495,6 +495,7 @@ height: 217px;
   width: 543px;
   height: 105px;
   align-items: flex-start;
+  color: black;
 }
 
 .prices .price-item {
@@ -618,6 +619,7 @@ height: 217px;
 
 .when, .where, .who, .prices {
   margin-top: 20px;
+  color: black;
   }
 
   .who {
@@ -633,6 +635,7 @@ height: 217px;
   width: 542px;
   height: 118px;
   align-items: baseline;
+  color: black;
 }
 
 .prices .price-item {
@@ -677,4 +680,10 @@ height: 217px;
  width: 255px;
 //  padding: 10px 20px;
 }
+}
+
+@media screen and (min-width: $mobile-width) {
+  .prices {
+    color: black;
+  }
 }
