@@ -22,6 +22,20 @@ $gap: 30px;
   padding: 0;
 }
 
+.noeventsfound {
+  color: #DC56C5;
+  font-size: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hidden-pagination {
+  display: none;
+}
+
 /* Event Card Styles */
 .event-card {
   position: relative;
@@ -121,11 +135,12 @@ $gap: 30px;
 }
 
 /* Tablet Media Query */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $tablet-width) {
   #event-cards {
     grid-template-columns: repeat(4, 1fr);
     row-gap: 52px;
   }
+
 
   .event-card {
     min-height: 211px;
@@ -153,11 +168,12 @@ $gap: 30px;
 }
 
 /* Desktop Media Query */
-@media screen and (min-width: 1158px) {
+@media screen and (min-width: $desktop-width) {
   #event-cards {
     grid-template-columns: repeat(4, 1fr);
     row-gap: 40px;
   }
+
 
   .event-card {
     width: 288px;

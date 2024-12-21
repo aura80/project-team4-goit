@@ -71,7 +71,7 @@ function renderEvents(events) {
 // Render no events message
 function renderNoEventsMessage() {
   const eventCards = document.getElementById('event-cards');
-  eventCards.innerHTML = '<p>No events found. Please refine your search.</p>';
+  eventCards.innerHTML = '<p class="noeventsfound">No events found. Please refine your search.</p>';
   document.getElementById('pagination').style.display = 'none';
 }
 
