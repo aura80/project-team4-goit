@@ -1,4 +1,4 @@
-// modal.js
+import updatePage from './main.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const eventCardsContainer = document.getElementById('event-cards');
@@ -10,33 +10,43 @@ document.addEventListener('DOMContentLoaded', () => {
   // Open modal
   eventCardsContainer.addEventListener('click', async event => {
     const eventCard = event.target.closest('.event-card');
+    let eventName;
     if (eventCard) {
       const eventId = eventCard.getAttribute('data-id');
 
       if (eventId) {
         try {
-
           // Show spinner at modal load
           spinner.style.display = 'block';
 
           // Fetch event details from API
-          const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${eventId}.json?apikey=ABgCFeGHE7lHgwV23hsJAFL80GX9ypoh`);
+          const response = await fetch(
+            `https://app.ticketmaster.com/discovery/v2/events/${eventId}.json?apikey=ABgCFeGHE7lHgwV23hsJAFL80GX9ypoh`
+          );
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
           const eventData = await response.json();
 
-          const eventName = eventData.name || '';
+          eventName = eventData.name || '';
           const eventDate = eventData.dates?.start?.localDate || '';
           const eventTime = eventData.dates?.start?.localTime || '';
           const eventLocation = eventData._embedded?.venues?.[0]?.name || '';
-          const eventImage = eventData.images?.[0]?.url || 'https://via.placeholder.com/427x326?text=No+Image';
+          const eventImage =
+            eventData.images?.[0]?.url ||
+            'https://via.placeholder.com/427x326?text=No+Image';
           const ticketPrices = eventData.priceRanges || [];
           const buyStandardTicketUrl = eventData.url || '';
           const buyVipTicketUrl = `${eventData._embedded?.venues?.[0]?.url}?addOnType=VIP`;
-          
-          let minPrice = Math.min(ticketPrices[0]?.min ?? Infinity, ticketPrices[1]?.min ?? Infinity);
-          let maxPrice = Math.max(ticketPrices[0]?.max ??-Infinity, ticketPrices[1]?.max ??-Infinity);
+
+          let minPrice = Math.min(
+            ticketPrices[0]?.min ?? Infinity,
+            ticketPrices[1]?.min ?? Infinity
+          );
+          let maxPrice = Math.max(
+            ticketPrices[0]?.max ?? -Infinity,
+            ticketPrices[1]?.max ?? -Infinity
+          );
 
           if (modalEventDetails) {
             modalEventDetails.innerHTML = `
@@ -51,7 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="modal-info">
                       <strong>INFO</strong>
                       <div class="event-info">
-                      <p>${eventData.info || 'No additional information available.'}</p>
+                      <p>${
+                        eventData.info || 'No additional information available.'
+                      }</p>
                       </div>
                     </div>
                     <div class="when">
@@ -83,7 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="price-info">
                       <div class="barcode"></div> <!-- Placeholder for barcode image -->
                       <div class="standard-price">
-                        <p>STANDARD: $${minPrice} ${ticketPrices[0]?.currency} - $${ticketPrices[0]?.max} ${ticketPrices[0]?.currency}</p>
+                        <p>STANDARD: $${minPrice} ${
+                          ticketPrices[0]?.currency
+                        } - $${ticketPrices[0]?.max} ${
+                          ticketPrices[0]?.currency
+                        }</p>
                       </div>
                     </div>
                         <button id="buyStandardButton" class="buy-button-standard" data-url="${buyStandardTicketUrl}">Buy Tickets</button>
@@ -106,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
                       : 'There are no tickets available for this event'
                   }
                 </div>
-                <button id="more-from-authors" class="more-button">MORE FROM THIS AUTHOR</button>
+                <button id="more-from-authors" class="more-button" data-name="nameArtist">MORE FROM THIS AUTHOR</button>
               `;
           }
 
@@ -117,6 +133,19 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => {
             spinner.style.display = 'none';
           }, 1200);
+
+          const modalMoreBtn = document.getElementById('more-from-authors');
+
+          function getEventNameFromModal() {
+            return eventName;
+          }
+
+          modalMoreBtn.addEventListener('click', () => {
+            const searchEvent = getEventNameFromModal();
+            updatePage(searchEvent);
+            modal.style.display = 'none';
+            modalOverlay.style.display = 'none';
+          });
 
         } catch (error) {
           console.error('Failed to fetch event details:', error);
