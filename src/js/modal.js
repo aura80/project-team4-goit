@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
           modal.style.display = 'block';
           modalOverlay.style.display = 'block';
 
-          // hide spinner after 500 ms
+          // hide spinner after 1200 ms
           setTimeout(() => {
             spinner.style.display = 'none';
           }, 1200);
