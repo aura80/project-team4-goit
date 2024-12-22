@@ -10,6 +10,7 @@ function getSearchEventValue() {
 // Event listener for the search button
 searchBtn.addEventListener('click', () => {
   const searchEvent = getSearchEventValue();
+  window.currentPage = 0;
   updatePage(searchEvent);
 });
 
@@ -17,6 +18,7 @@ searchBtn.addEventListener('click', () => {
 searchInput.addEventListener('keydown', event => {
   if (event.key === 'Enter') {
     const searchEvent = getSearchEventValue();
+    window.currentPage = 0;
     updatePage(searchEvent);
   }
 });
