@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   eventCardsContainer.addEventListener('click', async event => {
     const eventCard = event.target.closest('.event-card');
     let eventName;
-
     if (eventCard) {
       const eventId = eventCard.getAttribute('data-id');
       if (eventId) {
@@ -31,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const eventData = await response.json();
           eventName = eventData.name || '';
 
+          eventName = eventData.name || '';
           const eventDate = eventData.dates?.start?.localDate || '';
           const eventTime = eventData.dates?.start?.localTime || '';
           const eventLocation = eventData._embedded?.venues?.[0]?.name || '';
@@ -52,25 +52,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
           if (modalEventDetails) {
             modalEventDetails.innerHTML = `
-              <div class="pic-circle">
-                <img src="${eventImage}" alt="${eventName}">
-              </div>
-              <div class="event-content">
-                <div class="pic">
+                <div class="pic-circle">
                   <img src="${eventImage}" alt="${eventName}">
                 </div>
-                <div class="modal-details">
-                  <div class="modal-info">
-                    <strong>INFO</strong>
-                    <div class="event-info">
+                <div class="event-content">
+                  <div class="pic">
+                    <img src="${eventImage}" alt="${eventName}">
+                  </div>
+                  <div class="modal-details">
+                    <div class="modal-info">
+                      <strong>INFO</strong>
+                      <div class="event-info">
                       <p>${
                         eventData.info || 'No additional information available.'
                       }</p>
+                      </div>
                     </div>
-                  </div>
-                  <div class="when">
-                    <strong>WHEN</strong>
-                    <div class="when-info">
+                    <div class="when">
+                      <strong>WHEN</strong>
+                      <div class="when-info">
                       <p>${eventDate}</p>
                       <p>${eventTime} (${eventLocation})</p>
                     </div>
@@ -79,53 +79,53 @@ document.addEventListener('DOMContentLoaded', () => {
                     <strong>WHERE</strong>
                     <div class="where-info">
                       <p>${eventLocation}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="who">
-                <strong>WHO</strong>
-                <p>${eventName}</p>
-              </div>
-              <div class="prices">
-                <strong>PRICES</strong>
-                ${
-                  ticketPrices.length !== 0
-                    ? `
-                    <div class="prices-container">
-                      <div class="price-item">
-                        <div class="price-info">
-                          <div class="barcode"></div> <!-- Placeholder for barcode image -->
-                          <div class="standard-price">
-                            <p>STANDARD: $${minPrice} ${
-                        ticketPrices[0]?.currency
-                      } - $${ticketPrices[0]?.max} ${
-                        ticketPrices[0]?.currency
-                      }</p>
-                          </div>
-                        </div>
+                <div class="who">
+                  <strong>WHO</strong>
+                  <p>${eventName}</p>
+                </div>
+                <div class="prices">
+                  <strong>PRICES</strong>
+                  ${
+                    ticketPrices.length !== 0
+                      ? `
+                  <div class="prices-container">
+                    <div class="price-item">
+                    <div class="price-info">
+                      <div class="barcode"></div> <!-- Placeholder for barcode image -->
+                      <div class="standard-price">
+                        <p>STANDARD: $${minPrice} ${
+                          ticketPrices[0]?.currency
+                        } - $${ticketPrices[0]?.max} ${
+                          ticketPrices[0]?.currency
+                        }</p>
+                      </div>
+                    </div>
                         <button id="buyStandardButton" class="buy-button-standard" data-url="${buyStandardTicketUrl}">Buy Tickets</button>
                       </div>
-                      ${
-                        ticketPrices[1]
-                          ? `
-                          <div class="price-item">
-                            <div class="price-info">
-                              <div class="barcode"></div> <!-- Placeholder for barcode image -->
-                              <div class="vip-price">
-                                <p>VIP: $${maxPrice} ${ticketPrices[1]?.currency} - $${ticketPrices[1]?.max} ${ticketPrices[1]?.currency}</p>
-                              </div>
-                            </div>
-                            <button id="buyVipButton" class="buy-button-vip" data-url="${buyVipTicketUrl}">Buy Tickets</button>
-                          </div>`
-                          : ''
-                      }
-                    </div>`
-                    : 'There are no tickets available for this event'
-                }
-              </div>
-              <button id="more-from-authors" class="more-button" data-name="${eventName}">MORE FROM THIS AUTHOR</button>
-            `;
+                    ${
+                      ticketPrices[1]
+                        ? `
+                      <div class="price-item">
+                      <div class="price-info">
+                        <div class="barcode"></div> <!-- Placeholder for barcode image -->
+                        <div class="vip-price">
+                          <p>VIP: $${maxPrice} ${ticketPrices[1]?.currency} - $${ticketPrices[1]?.max} ${ticketPrices[1]?.currency}</p>
+                          </div>
+                          </div>
+                          <button id="buyVipButton" class="buy-button-vip" data-url="${buyVipTicketUrl}">Buy Tickets</button>
+                      </div>`
+                        : ''
+                    }
+                  </div>`
+                      : 'There are no tickets available for this event'
+                  }
+                </div>
+                <button id="more-from-authors" class="more-button" data-name="nameArtist">MORE FROM THIS AUTHOR</button>
+              `;
           }
 
           modal.style.display = 'block';
@@ -136,14 +136,19 @@ document.addEventListener('DOMContentLoaded', () => {
             spinner.style.display = 'none';
           }, 1200);
 
-          // Attach the event listener for the more-from-authors button here
           const modalMoreBtn = document.getElementById('more-from-authors');
+
+          function getEventNameFromModal() {
+            return eventName;
+          }
+
           modalMoreBtn.addEventListener('click', () => {
-            const searchEvent = eventName; // Use the correct author name
+            const searchEvent = getEventNameFromModal();
             updatePage(searchEvent);
             modal.style.display = 'none';
             modalOverlay.style.display = 'none';
           });
+
         } catch (error) {
           console.error('Failed to fetch event details:', error);
         }
