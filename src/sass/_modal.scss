@@ -1,3 +1,6 @@
+/* Media queries for screens wider than 320px */
+@media screen and (min-width: $mobile-width) {
+
 /* Modal overlay */
 .event-modal-overlay {
   display: none;
@@ -12,7 +15,6 @@
 }
 
 /* Modal */
-
 .event-modal {
   display: none;
   position: fixed;
@@ -31,14 +33,10 @@
 
 .event-modal-content {
   height: 100%;
-  // padding: 20px;
   box-sizing: border-box;
-
-  // border: 1px solid #4C00FE;
 }
 
 #modal-event-details {
-  // margin-left: 16px;
   display: flex;;
   flex-direction: column;
   align-items: center;
@@ -58,12 +56,12 @@
 .event-close-btn img {
   width: 100%;
   height: auto;
-  transition: transform 0.8s, filter 0.3s; /* Adaugă o tranziție lină */
+  transition: transform 0.8s, filter 0.3s;
 }
 
 .event-close-btn img:hover {
-  transform: scale(1.1); /* Mărește ușor imaginea la hover */
-  filter: brightness(1.5); /* Schimbă luminozitatea pentru un efect vizual */
+  transform: scale(1.1);
+  filter: brightness(1.5);
 }
 
 
@@ -86,6 +84,19 @@
 .event-content {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ascunde imaginea din div-ul pic pe dispozitive mobile */ 
+.pic { 
+  display: none; 
+}
+
+.upper-right-modal-details {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -96,6 +107,7 @@
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  margin-left: 0px;
 }
 
 .modal-info {
@@ -103,9 +115,11 @@
   height: auto;
   overflow: block; 
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Stilizarea pentru textul din div-ul modal-info */
 .modal-event-details p {
   font-family: Montserrat;
   font-size: 18px;
@@ -116,7 +130,6 @@
   text-decoration-skip-ink: none;
  }
 
-/* Stilizarea pentru tagul strong */
 .modal-info strong, .when strong, .where strong, .who strong, .prices strong {
   font-family: Montserrat;
   font-size: 20px;
@@ -128,7 +141,6 @@
   color: #DC56C5;
 }
 
-
 .event-info {
   width: 243px;
   max-height: 100px;
@@ -136,10 +148,9 @@
   overflow-y: scroll; 
   white-space: normal; 
   word-wrap: break-word;
-  // margin-top: 5px;
 }
 
-/* Visible scroll bar styling */
+/* Scrollbar 'event-info' */
 .event-info::-webkit-scrollbar {
   width: 8px; 
   height: 8px;
@@ -162,19 +173,28 @@
   line-height: 22px;
 }
 
-// .when p, .where p, .who p, .prices p {
-//   margin-top: 16px;
-// }
-
 .when, .where {
   width: 178px;
   height: 72px;
 }
 
-.when, .where, .prices, .who {
+.when, .where, .prices, {
   margin-top: 16px;
-    }
-  
+}
+
+.modal-info, .where, .when {
+  text-align: center;
+}
+
+.who {
+  margin-top: auto;
+ }
+
+.when, .where {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .when-info { 
   max-height: 40px; 
@@ -182,10 +202,9 @@
   white-space: normal; 
   word-wrap: break-word; 
   gap: 3px;
-  // margin-top: 5px;
 } 
 
-/* Scroll bar styling for the 'when-info' section */ 
+/* Scroll bar 'when-info' */ 
 .when-info::-webkit-scrollbar { 
   width: 8px; 
   height: 8px; 
@@ -202,16 +221,14 @@
 
 .where-info {
   width: 178px;
-  max-height: 40px; /* Ajustează înălțimea în funcție de necesitate */
+  max-height: 40px;
   overflow: auto;
   overflow-y: scroll; 
   white-space: normal; 
   word-wrap: break-word;
-  // margin-top: 5px;
 }
 
-
-/* Scroll bar styling for the 'where-info' section */ 
+/* Scroll bar 'where-info' */ 
 .where-info::-webkit-scrollbar { 
   width: 8px; 
   height: 8px; 
@@ -234,11 +251,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // margin-top:20px;
   width: 221px;
-  height: 200px;
-  // opacity: 0px;
+  height: auto;
 }
+
 .prices-container {
   display: flex;
   flex-direction: column;
@@ -254,17 +270,15 @@
 }
 
 .price-info {
-display: flex;
-flex-direction: row;
-// margin-top: 2px;
-margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
 }
 
 .prices .price-item {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  // margin-top: 2px;
   align-items: center;
 }
 
@@ -304,7 +318,6 @@ margin-bottom: 16px;
   background: #FFF2FD; 
 }
 
-
 .price-item p {
   display: inline-block;
   overflow: hidden; 
@@ -317,7 +330,6 @@ margin-bottom: 16px;
   text-align: center;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-  // color: #0E0E0E;
 } 
 
 .barcode {
@@ -327,8 +339,6 @@ margin-bottom: 16px;
   background: url('../images/barcode.svg') no-repeat center center;
   background-size: contain;
 }
-
-
 
 #buyStandardButton, #buyVipButton {
   background-color: #4C00FE;
@@ -358,11 +368,10 @@ margin-bottom: 16px;
 }
 
 .more-button {
-  // display: block;
-  width: calc(100% - 58px); /* Ajustare pentru a evita marginile */
+  width: calc(100% - 58px);
   height: 40px;
   text-align: center;
-  margin-top: 16px; /* Centrare orizontală și distanță de sus */
+  margin-top: 16px;
   background-color: #FFF2FD;
   color: #4C00FE;
   border: 1px solid #4C00FE;
@@ -372,15 +381,20 @@ margin-bottom: 16px;
   font-size: 16px;
 }
 
-
 .more-button:hover {
   background-color: #4C00FE;
   color: #FFF2FD;
   transform: scale(0.95);
 }
 
-/* Ascunde imaginea din div-ul pic pe dispozitive mobile */ 
-.pic { display: none; }
+.no-tickets {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
 
 // Modal animation
 .spinner {
@@ -390,7 +404,7 @@ margin-bottom: 16px;
   width: 140px;
   height: 140px;
   animation: spin 2s linear infinite;
-  display: none; /* Ascunsă inițial */
+  display: none;
   position: absolute;
   top: 20%;
   right: 7%;
@@ -406,10 +420,10 @@ margin-bottom: 16px;
     transform: translate(-50%) rotate(360deg);
   }
 }
-
+}
 
 /* Media queries for screens wider than 768px */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $tablet-width) {
 .event-modal {
   width: 704px;
   height: 781px;
@@ -420,21 +434,29 @@ margin-bottom: 16px;
   padding: 20px;
 }
 
-// #modal-event-details {
-
-// }
+#modal-event-details {
+  align-items: flex-start;
+  margin-left: 87px;
+}
 
 .modal-details {
   margin-left: 32px;
 }
 
-// .event-close-btn {
+.upper-modal-details {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
 
-// }
+.upper-right-modal-details {
+  align-items: flex-start;
+}
 
-// .event-close-btn img {
-
-// }
+.event-content {
+  flex-direction: column;
+  align-items: flex-start;
+}
 
 .pic-circle {
 width: 70px;
@@ -442,53 +464,46 @@ height: 70px;
 margin: 32px 317px 40px 317px;
 }
 
-// .pic-circle img {
-
-
-// }
-
 .pic {
 display: block;
 max-width: 249px;
-height: 217px;
+max-height: 217px;
 }
 
-// .pic img {
+.pic img {
+  height: 217px;
+}
 
-// }
 
+.modal-info {
+  height: 129px;
+}
 
-// .modal-info {
+.modal-details {
+  align-items: flex-start;
+  text-align: left;
+}
 
-// }
+.modal-info, .when, .where {
+align-items: flex-start;
+text-align: start;
+}
 
-// .modal-event-details p {
+.when-info {
+  width: 243px;
+}
+.where {
+  width: 100%;
+}
 
-// }
+.where-info {
+  width: 100%;
+}
 
-// .modal-info strong, .when strong, .where strong, .who strong, .prices strong {
-
-// }
-
-// .event-info {
-
-// }
-
-// .event p, .when p, .where p, .who p, .prices p {
-
-// }
-
-// .when p, .where p, .who p, .prices p {
-
-// }
-
-// .when, .where {
-
-// }
-
-// .when-info {
-
-// }
+.who {
+  text-align: left;
+  margin-top: 0px;
+}
 
 .prices {
   width: 543px;
@@ -506,40 +521,25 @@ height: 217px;
   gap: 42px;
 }
 
-// .price-list {
-
-// }
-
 .price-item p {
-  // max-width: auto;
   text-align: left;
+  max-width: 242px;
 }
-
-// .barcode {
-
-// }
-
-// .buy-button {
-
-// }
 
 .more-button {
   width: 255px;
   margin-top: 60px;
+  margin-left: 129px;
 }
 }
 
 /* Media queries for screens wider than 1280px */
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: $desktop-width) {
 .event-modal {
   width: 1034px;
   height: 918px;
   border: 1px solid #4C00FE;
 }
-
-// .event-modal-content {
-
-// }
 
 #modal-event-details {
   margin-left: 74px;
@@ -555,21 +555,12 @@ height: 217px;
 
 }
 
-// .event-close-btn img {
-
-// }
-
 .pic-circle {
   width: 132px;
   height: 132px;
   margin: auto auto 40px auto;
 
 }
-
-// .pic-circle img {
-
-
-// }
 
 .pic {
   display: block;
@@ -579,23 +570,13 @@ height: 217px;
 
 .pic img {
   width: 100%;
-  height: 100%;
   object-fit: cover;
-}
-
-.modal-details {
-  align-items: flex-start;
-  text-align: left;
 }
 
 .modal-info {
   width: 427px;
   height: 124px;
 }
-
-// .modal-event-details p {
-
-// }
 
 .modal-info strong, .when strong, .where strong, .who strong, .prices strong {
   font-size: 24px;
@@ -607,7 +588,7 @@ height: 217px;
   max-height: 88px;
 }
 
-.event p, .when p, .where p, .who p, .prices p {
+.event-info p, .when p, .where p, .who p, .prices p {
   font-size: 18px;
 }
 
@@ -619,14 +600,19 @@ height: 217px;
 .when, .where, .who, .prices {
   margin-top: 20px;
   color: black;
-  }
+}
 
-  .who {
-    text-align: left;;
-  }
+.who {
+  text-align: left;;
+}
 
 .when-info {
  max-height: 44px;
+ width: 100%;
+}
+
+.where-info {
+  width: 100%;
 }
 
 .prices {
@@ -641,21 +627,15 @@ height: 217px;
   align-items: flex-start;
 }
 
-
 .prices-container {
   align-items: center;
   flex-direction: row;
   gap: 60px;
-
 }
 
 .standard-price, .vip-price {
   margin-bottom: 20px;
 }
-
-// .price-list {
-
-// }
 
 .price-item p {
   white-space: nowrap; 
@@ -669,20 +649,9 @@ height: 217px;
   height: 19px;;
 }
 
-// .buy-button {
-
-// }
-
 .more-button {
  margin-left: 309px;
  margin-top: 60px;
  width: 255px;
-//  padding: 10px 20px;
 }
-}
-
-@media screen and (min-width: $mobile-width) {
-  .prices {
-    color: black;
-  }
 }

@@ -54,10 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
                   <img src="${eventImage}" alt="${eventName}">
                 </div>
                 <div class="event-content">
+                <div class="upper-modal-details">
+                <div class="upper-left-modal-details">
                   <div class="pic">
                     <img src="${eventImage}" alt="${eventName}">
                   </div>
-                  <div class="modal-details">
+                  </div>
+                  <div class="upper-right-modal-details">
                     <div class="modal-info">
                       <strong>INFO</strong>
                       <div class="event-info">
@@ -73,6 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
                       <p>${eventTime} (${eventLocation})</p>
                       </div>
                     </div>
+                    </div>
+                    </div>
                     <div class="where">
                       <strong>WHERE</strong>
                       <div class="where-info">
@@ -80,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                
                 <div class="who">
                   <strong>WHO</strong>
                   <p>${eventName}</p>
@@ -119,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         : ''
                     }
                   </div>`
-                      : 'There are no tickets available for this event'
+                      : '<p class="no-tickets">There are no tickets available for this event.</p>'
                   }
                 </div>
                 <button id="more-from-authors" class="more-button" data-name="nameArtist">MORE FROM THIS AUTHOR</button>
