@@ -3,6 +3,7 @@ import { renderPagination } from './pagination.js';
 import './modal.js';
 
 let currentPage = 0; // Zero-based page index for API
+window.currentPage = currentPage; // Make it globally accessible
 const limit = 16;
 const maxPagesAccepted = 1000 / limit; // API max limit (page * size) must be less than 1,000
 
@@ -13,7 +14,12 @@ async function updatePage(query) {
   try {
     // Get country code from country input
     const countryCode = countryInput.getAttribute('data-country');
-    const data = await fetchEvents(query, currentPage, limit, countryCode);
+    const data = await fetchEvents(
+      query,
+      window.currentPage,
+      limit,
+      countryCode
+    );
 
     if (data.events && data.events.length > 0) {
       renderEvents(data.events);
@@ -23,7 +29,7 @@ async function updatePage(query) {
           ? maxPagesAccepted
           : data.pageInfo.totalPages;
 
-      renderPagination(maxPages, currentPage, handlePageChange);
+      renderPagination(maxPages, window.currentPage, handlePageChange);
     } else {
       renderNoEventsMessage();
     }
@@ -35,7 +41,7 @@ async function updatePage(query) {
 
 // Handle page change from pagination
 function handlePageChange(newPage) {
-  currentPage = newPage; // Update the zero-based page index
+  window.currentPage = newPage; // Update the zero-based page index
   const query = document.getElementById('search').value.trim() || 'events';
   updatePage(query);
 }

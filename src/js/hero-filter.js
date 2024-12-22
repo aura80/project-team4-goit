@@ -158,6 +158,7 @@ if (countryInput && countryDropdown) {
       // Fetch events for the selected country
       let searchInputValue = document.getElementById('search').value;
       let searchEvent = searchInputValue !== '' ? searchInputValue : 'events';
+      window.currentPage = 0;
       updatePage(searchEvent);
     }
   });
