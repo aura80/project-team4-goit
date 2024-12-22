@@ -245,7 +245,7 @@
   background: transparent;
 }
 
-@media (min-width: 768px) and (max-width: 1280px) {
+@media (min-width: $tablet-width) and (max-width: $desktop-width) {
 
   .hero_section {
     height: 364px;
@@ -303,7 +303,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $tablet-width) {
 
   .hero_section {
     height: 364px;
@@ -454,4 +454,20 @@
 
 p, span {
   color: rgba(14, 14, 14, 1);
+}
+
+// pagination fix
+body.light-theme {
+  .paginationjs-theme-grey.custom-paginationjs li a {
+    color: #000;
+  }
+  .event-card-date {
+    color: #000;
+  }
+  .event-card-place {
+    color: #000;
+  }
+  .event-card-place svg{
+    fill: #000;
+  }
 }
