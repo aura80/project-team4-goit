@@ -6,5 +6,6 @@ import './js/pagination.js';
 import './js/buy-tickets.js';
 import './js/modal.js';
 import './js/modal-team.js';
-import './js/loading.js'
-import './js/more-authors.js';
+import './js/loading.js';
+import './js/dark-light-theme.js';
+import './js/back-to-top';
