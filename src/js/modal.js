@@ -54,78 +54,94 @@ document.addEventListener('DOMContentLoaded', () => {
                   <img src="${eventImage}" alt="${eventName}">
                 </div>
                 <div class="event-content">
-                <div class="upper-modal-details">
-                <div class="upper-left-modal-details">
+                  <div class="upper-modal-details">
+                    <div class="upper-left-modal-details">
+                      <div class="pic">
+                        <img src="${eventImage}" alt="${eventName}">
+                      </div>
+                    </div>
+                    <div class="upper-right-modal-details">
+                      <div class="modal-info">
+                        <strong>INFO</strong>
+                        <div class="event-info">
+                          <p>${eventData.info || 'No additional information available.'}</p>
+                        </div>
+                      </div>
+                      <div class="when">
+                        <strong>WHEN</strong>
+                        <div class="when-info">
+                          <p>${eventDate}</p>
+                          <p>${eventTime} (${eventLocation})</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="where">
+                    <strong>WHERE</strong>
+                    ${eventLocation ? `
+                      <div class="where-info"><p>${eventLocation}</p>
+                      </div>` 
+                      : '<p class="no-location">No information available yet.</p>'}
+                  </div>
+                </div>
+
+                <div class="event-content-desktop">
                   <div class="pic">
                     <img src="${eventImage}" alt="${eventName}">
                   </div>
-                  </div>
-                  <div class="upper-right-modal-details">
+                  <div class="modal-details">
                     <div class="modal-info">
                       <strong>INFO</strong>
                       <div class="event-info">
-                      <p>${
-                        eventData.info || 'No additional information available.'
-                      }</p>
+                        <p>${eventData.info || 'No additional information available.'}</p>
                       </div>
                     </div>
                     <div class="when">
                       <strong>WHEN</strong>
                       <div class="when-info">
-                      <p>${eventDate}</p>
-                      <p>${eventTime} (${eventLocation})</p>
+                        <p>${eventDate}</p>
+                        <p>${eventTime} (${eventLocation})</p>
                       </div>
                     </div>
-                    </div>
-                    </div>
-                    <div class="where">
-                      <strong>WHERE</strong>
-                      <div class="where-info">
-                      <p>${eventLocation}</p>
-                      </div>
-                    </div>
+                  <div class="where">
+                    <strong>WHERE</strong>
+                    ${eventLocation ? `
+                      <div class="where-info"><p>${eventLocation}</p>
+                      </div>` 
+                      : '<p class="no-location">No information available yet.</p>'}
                   </div>
-                
+                </div>
+                  </div>
+                </div>
+
                 <div class="who">
                   <strong>WHO</strong>
                   <p>${eventName}</p>
                 </div>
                 <div class="prices">
                   <strong>PRICES</strong>
-                  ${
-                    ticketPrices.length !== 0
-                      ? `
-                  <div class="prices-container">
-                    <div class="price-item">
-                    <div class="price-info">
-                      <div class="barcode"></div> <!-- Placeholder for barcode image -->
-                      <div class="standard-price">
-                        <p>STANDARD: $${minPrice} ${
-                          ticketPrices[0]?.currency
-                        } - $${ticketPrices[0]?.max} ${
-                          ticketPrices[0]?.currency
-                        }</p>
-                      </div>
-                    </div>
-                        <button id="buyStandardButton" class="buy-button-standard" data-url="${buyStandardTicketUrl}">Buy Tickets</button>
-                      </div>
-                    ${
-                      ticketPrices[1]
-                        ? `
+                  ${ticketPrices.length !== 0 ? `
+                    <div class="prices-container">
                       <div class="price-item">
-                      <div class="price-info">
-                        <div class="barcode"></div> <!-- Placeholder for barcode image -->
-                        <div class="vip-price">
-                          <p>VIP: $${maxPrice} ${ticketPrices[1]?.currency} - $${ticketPrices[1]?.max} ${ticketPrices[1]?.currency}</p>
+                        <div class="price-info">
+                          <div class="barcode"></div>
+                          <div class="standard-price">
+                            <p>STANDARD: $${minPrice} ${ticketPrices[0]?.currency} - $${ticketPrices[0]?.max} ${ticketPrices[0]?.currency}</p>
                           </div>
+                        </div>
+                        <button id="buyStandardButton" class="buy-button-standard" data-url="${buyStandardTicketUrl}">BUY TICKETS</button>
+                      </div>
+                      ${ticketPrices[1] ? `
+                      <div class="price-item">
+                        <div class="price-info">
+                          <div class="barcode"></div>
+                          <div class="vip-price">
+                            <p>VIP: $${maxPrice} ${ticketPrices[1]?.currency} - $${ticketPrices[1]?.max} ${ticketPrices[1]?.currency}</p>
                           </div>
-                          <button id="buyVipButton" class="buy-button-vip" data-url="${buyVipTicketUrl}">Buy Tickets</button>
-                      </div>`
-                        : ''
-                    }
-                  </div>`
-                      : '<p class="no-tickets">There are no tickets available for this event.</p>'
-                  }
+                        </div>
+                        <button id="buyVipButton" class="buy-button-vip" data-url="${buyVipTicketUrl}">BUY TICKETS</button>
+                      </div>` : ''}
+                    </div>` : '<p class="no-tickets">There are no tickets available for this event.</p>'}
                 </div>
                 <button id="more-from-authors" class="more-button" data-name="nameArtist">MORE FROM THIS AUTHOR</button>
               `;

@@ -1,3 +1,53 @@
+/* Puff-in animation for modal opening */
+.magictime {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@media (print), (prefers-reduced-motion) {
+  .magictime {
+    -webkit-animation: unset !important;
+    animation: unset !important;
+    transition: none !important;
+  }
+}
+
+.puffIn {
+  -webkit-animation-name: puffIn;
+  animation-name: puffIn;
+}
+
+@-webkit-keyframes puffIn {
+  0% {
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transform: scale(2, 2);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform: scale(1, 1);
+    filter: blur(0px);
+  }
+}
+@keyframes puffIn {
+  0% {
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transform: scale(2, 2);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform: scale(1, 1);
+    filter: blur(0px);
+  }
+}
+
 /* Media queries for screens wider than 320px */
 @media screen and (min-width: $mobile-width) {
 
@@ -29,6 +79,10 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   border-radius: 300px 0px;
   overflow: hidden;
+}
+
+.event-content-desktop { 
+  display: none;
 }
 
 .event-modal-content {
@@ -187,7 +241,8 @@
 }
 
 .who {
-  margin-top: auto;
+  margin-top: 16px;
+  text-align: center;
  }
 
 .when, .where {
@@ -243,10 +298,6 @@
   background: #FFF2FD; 
 }
 
-.who {
-  text-align: center;
-}
-
 .prices {
   display: flex;
   flex-direction: column;
@@ -273,6 +324,7 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 16px;
+  margin-top: 2px;
 }
 
 .prices .price-item {
@@ -336,7 +388,7 @@
   width: 24px;
   height: 16px;
   margin-right: 2px;
-  background: url('../images/barcode.svg') no-repeat center center;
+  background: url('../images/modal/barcode.svg') no-repeat center center;
   background-size: contain;
 }
 
@@ -347,7 +399,7 @@
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
-  width: 145px;
+  width: auto;
   height: 40px;
   font-family: Montserrat;
   font-size: 16px;
@@ -368,7 +420,7 @@
 }
 
 .more-button {
-  width: calc(100% - 58px);
+  font-family: $font-family;
   height: 40px;
   text-align: center;
   margin-top: 16px;
@@ -395,6 +447,11 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
 }
+
+.no-location {
+    text-align: center; /* Centrează textul */
+ }
+
 
 // Modal animation
 .spinner {
@@ -535,6 +592,14 @@ text-align: start;
 
 /* Media queries for screens wider than 1280px */
 @media screen and (min-width: $desktop-width) {
+.event-content-desktop { 
+  display: flex; 
+}
+
+.event-content { 
+  display: none; 
+}
+
 .event-modal {
   width: 1034px;
   height: 918px;
@@ -558,7 +623,7 @@ text-align: start;
 .pic-circle {
   width: 132px;
   height: 132px;
-  margin: auto auto 40px auto;
+  margin: 54px auto 40px auto;
 
 }
 
@@ -570,12 +635,13 @@ text-align: start;
 
 .pic img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 .modal-info {
   width: 427px;
-  height: 124px;
+  height: auto;
 }
 
 .modal-info strong, .when strong, .where strong, .who strong, .prices strong {
@@ -583,7 +649,6 @@ text-align: start;
 }
 
 .event-info {
-  margin-top: 7px;
   width: 427px;
   max-height: 88px;
 }
@@ -593,7 +658,7 @@ text-align: start;
 }
 
 .when, .where {
-  width: 427px;
+  width: 100%;
   height: auto;
 }
 
