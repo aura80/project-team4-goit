@@ -39,7 +39,6 @@ footer button:hover{
     color: white;
     border: none;
     border-radius: 4px;
-    margin: 30px;
     cursor: pointer;
 }
 
@@ -70,7 +69,6 @@ footer button:hover{
 }
 
 .modal-title {
-    margin: 40px;
     color: black;
 }
 
@@ -105,7 +103,7 @@ footer {
 
 
 /* Container carduri */
-#team-cards {
+#modal-team-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -128,10 +126,9 @@ footer {
     align-items: center;
         h3{
             color: black;
-            font-size: 100%;
         }
         p{
-            font-size: 80%;
+            font-size: 70%;
         }
     }
 
@@ -159,21 +156,121 @@ footer {
 }
 
 
+}
 
+// Variabile pentru:
+$desktop-width: 1280px;
+$tablet-width: 768px;
+$mobile-width: 320px;
 
+.modal{
+    
+    @media (max-width: $mobile-width) {
+        width: 320px;
+    }
+}
 
+.modal-title {
+    @media (min-width: $desktop-width) {
+        margin-top: 35px;
+    }
+    
+    @media (max-width: $desktop-width) {
+        margin-top: 20px;
+        font-size: 110%;
+    }
+    
+    @media (max-width: $tablet-width) {
+        margin-top: 30px;
+    }
+    
+    @media (max-width: $mobile-width) {
+        font-size: 90%;
+        margin-left: 15px;
+    }
+}
 
+.modal-logo-goit{
+    
+    @media (max-width: $tablet-width) {
+        width: 70px;
+    }
+    
+    @media (max-width: $mobile-width) {
+        width: 60px;
+    }
+}
 
+.modal-description{
+    
+    @media (max-width: $desktop-width) {
+        margin-bottom: 10px;
+        font-size: 85%;
+    }
+    
+    @media (max-width: $mobile-width) {
+        margin-bottom: 5px;
+        font-size: 70%;
+        margin-left: 15px;
+    }
+ 
+}
+
+#modal-team-cards {
+    @media (max-width: $desktop-width) {
+        gap: 10px;
+    }
+    }
+#modal-team-cards .card-member {
+        
+    @media (max-width: $desktop-width) {
+        max-width: 20%;
+        margin-bottom: 0%;
+        padding: 0%;
+    }
+        
+    @media (max-width: $tablet-width) {
+        margin-left: 0%;
+    }
+        
+    @media (max-width: $mobile-width) {
+        max-width: 22%;
+    }
+   
+}
+
+.team-member-name {
+    @media (min-width: $desktop-width) {
+        font-size: 85%;
+    }
+    @media (max-width: $desktop-width) {
+        font-size: 60%;
+    }
+    @media (max-width: $tablet-width) {
+        font-size: 45%;
+    }
 }
 
 
+#modal-team-cards .card-member p{
+    @media (min-width: $desktop-width) {
+        font-size: 90%;
+    }
+        
+    @media (max-width: $desktop-width) {}
 
-/* Tablet Media Query */
-@media screen and (min-width: 768px) {
-
+    @media (max-width: $tablet-width) {
+    font-size: 50%;
+    }
 }
 
-/* Mobile Media Query */
-@media screen and (min-width: 1158px) {
-
+#close-modal{
+    
+    @media (max-width: $tablet-width) {
+        padding: 2px 4px;
+    }
+    
+    @media (max-width: $mobile-width) {
+        padding: 0px 4px;
+    }
 }

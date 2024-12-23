@@ -33,7 +33,7 @@ const teamMembers = [
 ];
 
 
-const teamCards = document.getElementById(`team-cards`);
+const teamCards = document.getElementById(`modal-team-cards`);
 
 // Card membrii
 teamMembers.forEach(member => {
@@ -48,7 +48,7 @@ teamMembers.forEach(member => {
   // Conținutul cardului
   card.innerHTML = `
     <img src="${member.image}" alt="Picture of" class="member-image">
-    <h3>${member.name}</h3>
+    <h3 class="team-member-name">${member.name}</h3>
     <p>${member.role}</p>
   `;
 
